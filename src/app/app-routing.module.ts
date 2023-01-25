@@ -15,6 +15,7 @@ const routes :Routes =[
   declarations: [],
   imports: [
     CommonModule,
+    AdminRoutingModule,
     AuthRoutingModule,
     PagesRoutingModule,
     RouterModule.forRoot(routes)
