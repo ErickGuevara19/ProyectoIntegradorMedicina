@@ -1,1 +1,38 @@
-<p>login works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./login.component.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form>
+        <h1>Inicio de sesión</h1>
+        <div class="login-option doctor">
+          <img src="../../../assets/img/doctor.png" alt="Doctor login">
+          <h2>Médico</h2>
+          <label for="doctor-username">Nombre de usuario:</label><br>
+          <input type="text" id="doctor-username" name="doctor-username"><br>
+          <label for="doctor-password">Contraseña:</label><br>
+          <input type="password" id="doctor-password" name="doctor-password"><br><br>
+          <input type="submit" value="Iniciar sesión">
+        </div>
+        <div class="login-option patient">
+          <img src="../../../assets/img/paciente.jpg" alt="Paciente login">
+          <h2>Paciente</h2>
+          <label for="patient-username" >Nombre de usuario:</label><br>
+          <input type="text" id="patient-username" name="patient-username"><br>
+          <label for="patient-password">Contraseña:</label><br>
+          <input type="password" id="patient-password" name="patient-password"><br><br>
+          <input type="submit" value="Iniciar sesión">
+        </div>
+        <div><a href="/register">No tienes cuenta Registrate</a></div>
+      </form>
+      
+
+
+</body>
+</html>
