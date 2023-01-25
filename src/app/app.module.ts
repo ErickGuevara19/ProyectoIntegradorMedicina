@@ -19,6 +19,7 @@ import { MedicalAppointmentListComponent } from './pages/medical-appointment-lis
 import { NoFoundpagesComponent } from './noFound/no-foundpages.component';
 import { MedicalAppointmentRegistrationComponent } from './admin/medical-appointment-registration/medical-appointment-registration.component';
 import { DoctorsRegisterComponent } from './admin/doctors-register/doctors-register.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DoctorsRegisterComponent } from './admin/doctors-register/doctors-regis
     MedicalAppointmentListComponent,
     NoFoundpagesComponent,
     MedicalAppointmentRegistrationComponent,
-    DoctorsRegisterComponent
+    DoctorsRegisterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule
