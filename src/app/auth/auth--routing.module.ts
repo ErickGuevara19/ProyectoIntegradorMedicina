@@ -8,12 +8,14 @@ const routes :Routes =[
   {path:'login',component:LoginComponent},
   {path:'registerPatient',component:RegisterPatientsComponent},
 
+
 ]
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(routes)
   ],
   exports:[
     RouterModule
