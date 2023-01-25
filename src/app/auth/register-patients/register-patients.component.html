@@ -1,1 +1,81 @@
-<p>register-patients works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="/registerPatients.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro de Paciente</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-content">
+                    <h1>Formulario de Registro de Paciente</h1>
+                        <form action="">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="nombre">Nombres</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombres">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="apellidos">Apellidos</label>
+                                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" id="fecha_nacimiento" placeholder="Fecha de Nacimiento">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="sexo">Sexo</label>
+                                <select id="sexo" class="form-control">
+                                    <option selected>Seleccionar...</option>
+                                    <option>Masculino</option>
+                                    <option>Femenino</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="direccion">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="telefono">Teléfono</label>
+                                <input type="text" class="form-control" id="telefono" placeholder="Teléfono">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="telefono_familiar">Teléfono Familiar</label>
+                                <input type="text" class="form-control" id="telefono_familiar" placeholder="Teléfono Familiar">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                    <label for="inputAlergias">Alergias</label>
+                                    <select name="alergias" id="inputAlergias" class="form-control">
+                                      <option value=""></option>
+                                    </select>
+                                </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputDiscapacidad">Discapacidad</label>
+                                <select name="discapacidad" id="inputDiscapacidad" class="form-control">
+                                  <option value=""></option>
+                                </select>
+                               </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="submit" value="Registrar" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
