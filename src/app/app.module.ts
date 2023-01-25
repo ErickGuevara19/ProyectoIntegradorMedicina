@@ -8,8 +8,6 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { DashboardDoctorsComponent } from './pages/dashboard-doctors/dashboard-doctors.component';
 import { DashboardPatientsComponent } from './pages/dashboard-patients/dashboard-patients.component';
-import { NoComponent } from './noFound/no/no.component';
-import { NoFoundPagesComponent } from './noFound/no-found-pages/no-found-pages.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterPatientsComponent } from './auth/register-patients/register-patients.component';
 import { PatientsTokenComponent } from './pages/patients-token/patients-token.component';
@@ -30,8 +28,6 @@ import { AdminComponent } from './admin/admin.component';
     SidebarComponent,
     DashboardDoctorsComponent,
     DashboardPatientsComponent,
-    NoComponent,
-    NoFoundPagesComponent,
     LoginComponent,
     RegisterPatientsComponent,
     PatientsTokenComponent,
