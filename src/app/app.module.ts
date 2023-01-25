@@ -17,6 +17,8 @@ import { DoctorsTokenComponent } from './pages/doctors-token/doctors-token.compo
 import { MedicalAppointmentSelectionComponent } from './pages/medical-appointment-selection/medical-appointment-selection.component';
 import { MedicalAppointmentListComponent } from './pages/medical-appointment-list/medical-appointment-list.component';
 import { NoFoundpagesComponent } from './noFound/no-foundpages.component';
+import { MedicalAppointmentRegistrationComponent } from './admin/medical-appointment-registration/medical-appointment-registration.component';
+import { DoctorsRegisterComponent } from './admin/doctors-register/doctors-register.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { NoFoundpagesComponent } from './noFound/no-foundpages.component';
     DoctorsTokenComponent,
     MedicalAppointmentSelectionComponent,
     MedicalAppointmentListComponent,
-    NoFoundpagesComponent
+    NoFoundpagesComponent,
+    MedicalAppointmentRegistrationComponent,
+    DoctorsRegisterComponent
   ],
   imports: [
     BrowserModule
