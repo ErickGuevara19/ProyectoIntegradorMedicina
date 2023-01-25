@@ -8,7 +8,7 @@ import { PagesRoutingModule } from './pages/pages--routing.module';
 
 const routes :Routes =[
 
-  {path:'',redirectTo:'dashboard',pathMatch:'full'},
+  {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'**',component:NoFoundpagesComponent},
 
 
