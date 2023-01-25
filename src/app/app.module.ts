@@ -18,6 +18,7 @@ import { NoFoundpagesComponent } from './noFound/no-foundpages.component';
 import { MedicalAppointmentRegistrationComponent } from './admin/medical-appointment-registration/medical-appointment-registration.component';
 import { DoctorsRegisterComponent } from './admin/doctors-register/doctors-register.component';
 import { AdminComponent } from './admin/admin.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AdminComponent } from './admin/admin.component';
     AdminComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
