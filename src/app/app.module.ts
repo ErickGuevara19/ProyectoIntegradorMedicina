@@ -19,6 +19,7 @@ import { MedicalAppointmentRegistrationComponent } from './admin/medical-appoint
 import { DoctorsRegisterComponent } from './admin/doctors-register/doctors-register.component';
 import { AdminComponent } from './admin/admin.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PagesRoutingModule } from './pages/pages--routing.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PagesRoutingModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
