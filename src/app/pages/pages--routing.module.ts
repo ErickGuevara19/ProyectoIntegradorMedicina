@@ -31,7 +31,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    AuthmoduleModule,
-  ]
+  ],
+  exports:[RouterModule]
 })
 export class PagesRoutingModule { }

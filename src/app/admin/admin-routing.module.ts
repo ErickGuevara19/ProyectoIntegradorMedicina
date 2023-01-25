@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: 'admin',component: AdminComponent, children: [
     {path: 'doctor-register', component: DoctorsRegisterComponent},
     {path: 'medical-appointment-registration', component: MedicalAppointmentRegistrationComponent},
-    {path: '', redirectTo:'/patients', pathMatch:'full'}
+    {path: '', redirectTo:'/dashboard', pathMatch:'full'}
   ]
   }
 ]
@@ -19,6 +19,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-  ]
+  ],
+  exports:[RouterModule]
 })
 export class AdminRoutingModule { }
