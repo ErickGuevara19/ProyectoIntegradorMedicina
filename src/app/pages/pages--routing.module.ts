@@ -5,6 +5,10 @@ import { DashboardDoctorsComponent } from './dashboard-doctors/dashboard-doctors
 import { DashboardPatientsComponent } from './dashboard-patients/dashboard-patients.component';
 import { PagesComponent } from './pages.component';
 import { AuthmoduleModule } from '../auth/authmodule.module';
+import { DoctorsTokenComponent } from './doctors-token/doctors-token.component';
+import { MedicalAppointmentListComponent } from './medical-appointment-list/medical-appointment-list.component';
+import { MedicalAppointmentSelectionComponent } from './medical-appointment-selection/medical-appointment-selection.component';
+import { PatientsTokenComponent } from './patients-token/patients-token.component';
 
 
 const routes: Routes = [
@@ -12,12 +16,12 @@ const routes: Routes = [
     path: 'dashboard', component: PagesComponent,
     children: [
       { path:'', component: DashboardDoctorsComponent},
-      { path: 'doctors', component: DashboardDoctorsComponent},
+      { path: '/doctors', component: DashboardDoctorsComponent},
       { path: 'patients', component: DashboardPatientsComponent },
-      { path: 'doctors-token', component: DashboardPatientsComponent },
-      { path: 'medical-appoinment-list', component: DashboardPatientsComponent },
-      { path: 'medical-appoinment-selection', component: DashboardPatientsComponent },
-      { path: 'patients-token', component: DashboardPatientsComponent },
+      { path: 'doctors-token', component: DoctorsTokenComponent  },
+      { path: 'medical-appoinment-list', component: MedicalAppointmentListComponent },
+      { path: 'medical-appoinment-selection', component: MedicalAppointmentSelectionComponent  },
+      { path: 'patients-token', component: PatientsTokenComponent },
       {path:'',redirectTo:'/dashboard',pathMatch:'full'},
     ]
   }
