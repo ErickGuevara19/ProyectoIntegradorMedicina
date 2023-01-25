@@ -15,10 +15,10 @@ const routes: Routes = [
   {
     path: 'dashboard', component: PagesComponent,
     children: [
-      { path:'', component: DashboardDoctorsComponent},
+      { path:'', component: PagesComponent},
       { path: 'doctors', component: DashboardDoctorsComponent},
-      { path: 'patients', component: DashboardPatientsComponent },
-      { path: 'doctors-token', component: DoctorsTokenComponent  },
+      { path: 'patients', component: DashboardPatientsComponent},
+      { path: 'doctors-token', component: DoctorsTokenComponent },
       { path: 'medical-appoinment-list', component: MedicalAppointmentListComponent },
       { path: 'medical-appoinment-selection', component: MedicalAppointmentSelectionComponent  },
       { path: 'patients-token', component: PatientsTokenComponent },
