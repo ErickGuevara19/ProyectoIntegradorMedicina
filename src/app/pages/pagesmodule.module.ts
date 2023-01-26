@@ -9,6 +9,7 @@ import { PatientsTokenComponent } from './patients-token/patients-token.componen
 
 
 
+
 @NgModule({
   declarations: [
     DashboardDoctorsComponent,
@@ -27,7 +28,8 @@ import { PatientsTokenComponent } from './patients-token/patients-token.componen
     DoctorsTokenComponent,
     MedicalAppointmentListComponent,
     MedicalAppointmentSelectionComponent,
-    PatientsTokenComponent
+    PatientsTokenComponent,
+    
   ],
 })
 export class PagesmoduleModule { }
