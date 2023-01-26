@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./doctors-register.component.css']
 })
 export class DoctorsRegisterComponent {
-
+  specialities: any[] = []
 }

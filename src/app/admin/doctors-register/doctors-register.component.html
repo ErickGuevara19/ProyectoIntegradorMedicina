@@ -1,1 +1,93 @@
-<p>doctors-register works!</p>
+<div class="row justify content-center mb-3">
+  <div class="col">
+    <div class="card">
+        <div class="card-header">
+            <h5>Registro de Doctores</h5>
+        </div>
+      <div class="row p-3">
+        <div class="col">
+          <div class="mb-3 row justifyContent-between">
+            <div class="col-lg-6 col-md-6">
+              <label for="txtNombre" class="fw-semibold form-label"
+                >Nombres:</label
+              >
+              <input
+                type="text"
+                name="txtNombre"
+                id="txtNombre"
+                class="form-control"
+              />
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label for="txtApellido" class="fw-semibold form-label"
+                >Apellidos:</label
+              >
+              <input
+                type="text"
+                name="txtApellido"
+                id="txtApellido"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="mb-3 row justifyContent-between">
+            <div class="col-lg-6 col-md-6">
+              <label for="txtEmail" class="fw-semibold form-label"
+                >Email:</label
+              >
+              <input
+                type="email"
+                name="txtEmail"
+                id="txtEmail"
+                class="form-control"
+              />
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label for="txtDireccion" class="fw-semibold form-label"
+                >Dirección:</label
+              >
+              <input
+                type="text"
+                name="txtDireccion"
+                id="txtDireccion"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="mb-3 row justifyContent-between">
+            <div class="col-lg-6 col-md-6">
+              <label for="txtEmail" class="fw-semibold form-label"
+                >Especialidades:</label
+              >
+              <ng-select
+                [items]="specialities"
+                bindLabel="descripcion_e"
+                name="txtEmail"
+                id="txtEmail"
+              >
+              </ng-select>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label for="txtContraseña" class="fw-semibold form-label"
+                >Contraseña:</label
+              >
+              <input
+                type="password"
+                name="txtContraseña"
+                id="txtContraseña"
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-12">
+            <button class="btn btn-success">Registrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
