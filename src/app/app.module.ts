@@ -9,13 +9,15 @@ import { PagesmoduleModule } from './pages/pagesmodule.module';
 import { SharedmoduleModule } from './shared/sharedmodule.module';
 import { AuthmoduleModule } from './auth/authmodule.module';
 import { AdminComponent } from './admin/admin.component';
+import { MedicalRecordComponent } from './medical-record/medical-record.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PagesComponent,
     AdminComponent,
-    NoFoundpagesComponent
+    NoFoundpagesComponent,
+    MedicalRecordComponent,
   ],
   imports: [
     BrowserModule,
