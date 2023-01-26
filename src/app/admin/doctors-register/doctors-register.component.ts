@@ -15,12 +15,15 @@ export class DoctorsRegisterComponent implements OnInit {
     apellidos_d: '',
     nombre_d: '',
     email: '',
-    contraseña_d: '',
-    dirreccion_d: '',
+    contrasenia_d: '',
+    direccion_d: '',
     especialidad: { id_especialidades: 0, descripcion_e: '' },
   };
   specialities: any[] = [];
   doctors: DoctorModel[] = [];
+  print(){
+    console.log(this.doctor)
+  }
 
   //async getDoctors(){
   //  const response = this.doctorService.getAll().subscribe((response) => {

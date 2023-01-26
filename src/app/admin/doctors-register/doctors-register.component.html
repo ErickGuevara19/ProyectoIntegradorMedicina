@@ -14,6 +14,7 @@
               <input
                 type="text"
                 name="txtNombre"
+                [(ngModel)]="doctor.nombre_d"
                 id="txtNombre"
                 class="form-control"
               />
@@ -25,6 +26,7 @@
               <input
                 type="text"
                 name="txtApellido"
+                [(ngModel)]="doctor.apellidos_d"
                 id="txtApellido"
                 class="form-control"
               />
@@ -38,6 +40,7 @@
               <input
                 type="email"
                 name="txtEmail"
+                [(ngModel)]="doctor.email"
                 id="txtEmail"
                 class="form-control"
               />
@@ -49,6 +52,7 @@
               <input
                 type="text"
                 name="txtDireccion"
+                [(ngModel)]="doctor.direccion_d"
                 id="txtDireccion"
                 class="form-control"
               />
@@ -56,14 +60,15 @@
           </div>
           <div class="mb-3 row justifyContent-between">
             <div class="col-lg-6 col-md-6">
-              <label for="txtEmail" class="fw-semibold form-label"
+              <label for="txtEspecialidad" class="fw-semibold form-label"
                 >Especialidades:</label
               >
               <ng-select
                 [items]="specialities"
                 bindLabel="descripcion_e"
-                name="txtEmail"
-                id="txtEmail"
+                [(ngModel)]="doctor.especialidad"
+                name="txtEspecialidad"
+                id="txtEspecialidad"
               >
               </ng-select>
             </div>
@@ -74,6 +79,7 @@
               <input
                 type="password"
                 name="txtContraseña"
+                [(ngModel)]="doctor.contrasenia_d"
                 id="txtContraseña"
                 class="form-control"
               />
@@ -84,7 +90,7 @@
       <div class="card-footer">
         <div class="row">
           <div class="col-12">
-            <button class="btn btn-success">Registrar</button>
+            <button (click)="print()" class="btn btn-success">Registrar</button>
           </div>
         </div>
       </div>

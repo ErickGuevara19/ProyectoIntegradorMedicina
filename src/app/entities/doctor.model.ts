@@ -5,8 +5,8 @@ export interface DoctorModel{
   nombre_d:string,
   apellidos_d:string,
   email:string,
-  dirreccion_d:string,
-  contraseña_d:string,
+  direccion_d:string,
+  contrasenia_d:string,
   especialidad: EspecialidadesModel
 }
 

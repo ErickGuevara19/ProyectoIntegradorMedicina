@@ -10,7 +10,7 @@ import { SharedmoduleModule } from './shared/sharedmodule.module';
 import { AuthmoduleModule } from './auth/authmodule.module';
 import { AdminComponent } from './admin/admin.component';
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +25,8 @@ import { MedicalRecordComponent } from './medical-record/medical-record.componen
     AdminModule,
     PagesmoduleModule,
     SharedmoduleModule,
-    AuthmoduleModule
+    AuthmoduleModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

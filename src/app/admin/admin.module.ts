@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DoctorsRegisterComponent } from './doctors-register/doctors-register.component';
 import { MedicalAppointmentRegistrationComponent } from './medical-appointment-registration/medical-appointment-registration.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -10,7 +11,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
   declarations: [DoctorsRegisterComponent,MedicalAppointmentRegistrationComponent],
   imports: [
     CommonModule,
-    NgSelectModule
+    NgSelectModule,
+    FormsModule
   ],
   exports: [
     DoctorsRegisterComponent,MedicalAppointmentRegistrationComponent
