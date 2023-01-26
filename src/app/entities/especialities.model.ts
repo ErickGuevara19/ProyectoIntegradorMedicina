@@ -1,4 +1,4 @@
 export interface EspecialidadesModel{
     id_especialidades: number;
-    descripcion_e: string;
+    descripcion_especialidad: string;
 }

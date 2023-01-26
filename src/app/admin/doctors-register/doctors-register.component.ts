@@ -12,12 +12,12 @@ export class DoctorsRegisterComponent implements OnInit {
   private doctorService = Inject(DoctorsService);
   doctor: DoctorModel = {
     id_doctor: 0,
-    apellidos_d: '',
     nombre_d: '',
+    apellidos_d: '',
     email: '',
     contrasenia_d: '',
-    direccion_d: '',
-    especialidad: { id_especialidades: 0, descripcion_e: '' },
+    dirreccion_d: '',
+    especialidades: { id_especialidades: 0, descripcion_especialidad: '' },
   };
   specialities: any[] = [];
   doctors: DoctorModel[] = [];

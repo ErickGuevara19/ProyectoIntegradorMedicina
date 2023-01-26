@@ -5,9 +5,9 @@ export interface DoctorModel{
   nombre_d:string,
   apellidos_d:string,
   email:string,
-  direccion_d:string,
+  dirreccion_d:string,
   contrasenia_d:string,
-  especialidad: EspecialidadesModel
+  especialidades: EspecialidadesModel
 }
 
 export interface CreateDoctorDto extends Omit<DoctorModel, 'id' | 'especialidad'>{

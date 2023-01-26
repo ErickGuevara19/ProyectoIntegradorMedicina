@@ -11,6 +11,8 @@ import { AuthmoduleModule } from './auth/authmodule.module';
 import { AdminComponent } from './admin/admin.component';
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     PagesmoduleModule,
     SharedmoduleModule,
     AuthmoduleModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
