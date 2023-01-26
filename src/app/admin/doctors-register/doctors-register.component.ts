@@ -1,15 +1,25 @@
-import { Component,Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { DoctorModel } from 'src/app/entities/doctor.model';
 import { DoctorsService } from 'src/app/services/doctors.service';
 
 @Component({
   selector: 'app-doctors-register',
   templateUrl: './doctors-register.component.html',
-  styleUrls: ['./doctors-register.component.css']
+  styleUrls: ['./doctors-register.component.css'],
 })
-export class DoctorsRegisterComponent {
-  private doctorService = Inject(DoctorsService)
-  specialities: any[] = []
+export class DoctorsRegisterComponent implements OnInit {
+  ngOnInit(): void {}
+  private doctorService = Inject(DoctorsService);
+  doctor: DoctorModel = {
+    id_doctor: 0,
+    apellidos_d: '',
+    nombre_d: '',
+    email: '',
+    contraseña_d: '',
+    dirreccion_d: '',
+    especialidad: { id_especialidades: 0, descripcion_e: '' },
+  };
+  specialities: any[] = [];
   doctors: DoctorModel[] = [];
 
   //async getDoctors(){

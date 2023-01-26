@@ -1,3 +1,5 @@
+import { EspecialidadesModel } from "./especialities.model";
+
 export interface DoctorModel{
   id_doctor:number,
   nombre_d:string,
@@ -5,12 +7,13 @@ export interface DoctorModel{
   email:string,
   dirreccion_d:string,
   contraseña_d:string,
+  especialidad: EspecialidadesModel
 }
 
-export interface CreateDoctorDto extends Omit<DoctorModel, 'id' | 'caregory'>{
-    categoryId:number;
-    }
+export interface CreateDoctorDto extends Omit<DoctorModel, 'id' | 'especialidad'>{
+  id_especialidades:number;
+  }
 
 export interface UpdateDoctorDto extends Partial<DoctorModel>{
-categoryId?:number;
+  id_especialidades?:number;
 }
