@@ -9,7 +9,7 @@ import { CreateProductDto, ProductModel, UpdateProductDto } from '../entities/pr
 
 export class ProductHttpService {
 
-  readonly API_URL ='https://api.escuelajs.co/api/v1/products';
+  readonly API_URL ='http://localhost:3000';
 
   constructor(private httpClient: HttpClient) {}
 
