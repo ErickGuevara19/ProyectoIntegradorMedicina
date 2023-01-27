@@ -8,8 +8,18 @@ import { DoctorsService } from 'src/app/services/doctors.service';
   styleUrls: ['./doctors-register.component.css'],
 })
 export class DoctorsRegisterComponent implements OnInit {
-  ngOnInit(): void {}
-  private doctorService = Inject(DoctorsService);
+  constructor(private doctorsService:DoctorsService){}
+  ngOnInit(): void {
+    this.listarDoctores();
+  }
+  listarDoctores(){
+    this.doctorsService.getAll().subscribe(
+      res=>{
+        console.log(res)
+      }
+    )
+  }
+  /*private doctorService = Inject(DoctorsService);
   doctor: DoctorModel = {
     id_doctor: 0,
     nombre_d: '',
@@ -23,7 +33,7 @@ export class DoctorsRegisterComponent implements OnInit {
   doctors: DoctorModel[] = [];
   print(){
     console.log(this.doctor)
-  }
+  }*/
 
   //async getDoctors(){
   //  const response = this.doctorService.getAll().subscribe((response) => {

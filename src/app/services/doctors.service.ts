@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class DoctorsService {
   
-  readonly API_URL ='http://localhost:3000/doctors';
+  readonly API_URL ='/api/doctors';
 
   constructor(private httpClient: HttpClient) {}
   getAll():Observable<DoctorModel[]> {
