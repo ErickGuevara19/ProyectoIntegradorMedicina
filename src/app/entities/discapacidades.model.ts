@@ -1,5 +1,5 @@
 export interface DiscapacidadesModel{
-    id_dis:number;
-    nombre_dis: string;
-    descripcion_dis: string;
+    id_discapacidades:number;
+    nombre_discapacidad: string;
+    descripcion_discacidad: string;
 }
