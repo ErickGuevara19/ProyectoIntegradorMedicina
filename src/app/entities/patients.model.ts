@@ -15,6 +15,16 @@ export interface PatientModel{
     alergias: AlergiasModel,
     dicapacidades: DiscapacidadesModel,
 }
+export interface CreateDoctorDto extends Omit<PatientModel, 'id' | 'alergias'| 'discapacidades'>{
+    id_especialidades:number;
+    id_alergias:number;
+    }
+  
+  export interface UpdateDoctorDto extends Partial<PatientModel>{
+    id_especialidades?:number;
+    id_alergias?:number;
+  }
+  
   
 
   
