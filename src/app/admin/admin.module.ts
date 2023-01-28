@@ -4,15 +4,19 @@ import { DoctorsRegisterComponent } from './doctors-register/doctors-register.co
 import { MedicalAppointmentRegistrationComponent } from './medical-appointment-registration/medical-appointment-registration.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { DoctorsListComponent } from './doctors-list/doctors-list.component';
+import { RouterModule } from '@angular/router';
+
 
 
 
 @NgModule({
-  declarations: [DoctorsRegisterComponent,MedicalAppointmentRegistrationComponent],
+  declarations: [DoctorsRegisterComponent,MedicalAppointmentRegistrationComponent, DoctorsListComponent],
   imports: [
     CommonModule,
     NgSelectModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [
     DoctorsRegisterComponent,MedicalAppointmentRegistrationComponent
