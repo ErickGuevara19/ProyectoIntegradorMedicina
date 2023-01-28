@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterPatientsComponent } from './register-patients/register-patients.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { RegisterPatientsComponent } from './register-patients/register-patients
     RegisterPatientsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     LoginComponent,
