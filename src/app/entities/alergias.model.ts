@@ -1,5 +1,5 @@
 export interface AlergiasModel{
-    id_alergias:number;
-    nombre_alergias:  string;
-    descripcion_alergias: string;
+    id_alergia:number;
+    nombre_alergia:  string;
+    descripcion_alergia: string;
 }
