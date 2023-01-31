@@ -10,10 +10,10 @@ export interface PatientModel{
     email_paciente:string,
     password_paciente:string,
     tlf_familiar_paciente:string,
-    fecha_nacimiento_paciente: Date,
+    fecha_nacimiento_paciente: string,
     genero_paciente: Boolean,
     alergias: AlergiasModel,
-    dicapacidades: DiscapacidadesModel,
+    discapacidades: DiscapacidadesModel,
 }
 export interface CreateDoctorDto extends Omit<PatientModel, 'id' | 'alergias'| 'discapacidades'>{
     id_especialidades:number;
