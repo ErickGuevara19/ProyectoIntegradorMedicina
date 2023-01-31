@@ -8,6 +8,7 @@ export interface PatientModel{
     direccion_paciente:string,
     telefono_paciente:string,
     email_paciente:string,
+    password_paciente:string,
     tlf_familiar_paciente:string,
     fecha_nacimiento_paciente: Date,
     genero_paciente: Boolean,
