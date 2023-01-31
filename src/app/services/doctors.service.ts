@@ -14,19 +14,20 @@ export class DoctorsService {
   getAll():Observable<DoctorModel[]> {
     const url = `${this.API_URL}`;
     return this.httpClient.get<DoctorModel[]>(url);
-  }/*
-  getOne(id:DoctorModel['id']):Observable<DoctorModel> {
+  }
+  store(doctor:DoctorModel): Observable<DoctorModel> {
+  const url = `${this.API_URL}`;
+  return this.httpClient.post<DoctorModel>(url, doctor);
+  
+  }
+  getOne(id:DoctorModel['id_doctor']):Observable<DoctorModel> {
     const url = `${this.API_URL}/${id}`;
     return this.httpClient.get<DoctorModel>(url);
   }
-  store(product:CreateDoctorDto) {
-    const url = `${this.API_URL}`;
-    return this.httpClient.post(url, product);
-  }
-  update(id:DoctorModel['id'], product: UpdateDoctorDto) {
+  update(id:DoctorModel['id_doctor'], product: UpdateDoctorDto) {
     const url = `${this.API_URL}/${id}`
     return this.httpClient.put(url, product);
-  }*/
+  }
   destroy(id:DoctorModel['id_doctor']):Observable<any> {
     const url = `${this.API_URL}/${id}`
     return this.httpClient.delete<any>(url).
