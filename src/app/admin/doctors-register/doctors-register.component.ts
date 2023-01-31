@@ -9,16 +9,20 @@ import { DoctorsService } from 'src/app/services/doctors.service';
 })
 export class DoctorsRegisterComponent implements OnInit {
   constructor(private doctorsService:DoctorsService){}
+  doctor: DoctorModel = {
+    id_doctor: 0,
+    nombre_d: '',
+    apellidos_d: '',
+    email: '',
+    contrasenia_d: '',
+    dirreccion_d: '',
+    especialidades: { id_especialidades: 0, descripcion_especialidad: '' },
+  };
   ngOnInit(): void {
-    this.listarDoctores();
+    console.log(history.state)
+    this.doctor = history.state  
   }
-  listarDoctores(){
-    this.doctorsService.getAll().subscribe(
-      res=>{
-        console.log(res)
-      }
-    )
-  }
+  
   /*private doctorService = Inject(DoctorsService);
   doctor: DoctorModel = {
     id_doctor: 0,

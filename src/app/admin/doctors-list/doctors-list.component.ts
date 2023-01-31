@@ -16,6 +16,13 @@ export class DoctorsListComponent implements OnInit {
   listarDoctores() {
     this.doctorsService.getAll().subscribe((res) => {
       this.doctorList = res
+      console.table(this.doctorList)
+    });
+  }
+  deleteDoctor(id: number) {
+    const response = this.doctorsService.destroy(id).subscribe(response => {
+      this.doctorList = this.doctorList.filter(doctor => doctor.id_doctor != id)
+      console.log(response);
     });
   }
 }
