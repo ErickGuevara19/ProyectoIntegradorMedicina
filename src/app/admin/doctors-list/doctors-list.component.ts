@@ -9,6 +9,10 @@ import { DoctorsService } from 'src/app/services/doctors.service';
 export class DoctorsListComponent implements OnInit {
   constructor(private doctorsService: DoctorsService) {}
   doctorList: DoctorModel[] = [];
+  filterName: string = '';
+  filterEmail: string = '';
+  filterEspecialidad: string = '';
+
   ngOnInit(): void {
     this.listarDoctores();
   }
