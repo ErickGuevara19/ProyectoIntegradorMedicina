@@ -10,7 +10,7 @@ export interface DoctorModel{
   especialidades: EspecialidadesModel
 }
 
-export interface CreateDoctorDto extends Omit<DoctorModel, 'id' | 'especialidad'>{
+export interface CreateDoctorDto extends Omit<DoctorModel, 'id_doctor' | 'especialidades'>{
   id_especialidades:number;
   }
 

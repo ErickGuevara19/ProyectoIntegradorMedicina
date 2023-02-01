@@ -15,10 +15,9 @@ export class DoctorsService {
     const url = `${this.API_URL}`;
     return this.httpClient.get<DoctorModel[]>(url);
   }
-  store(doctor:DoctorModel): Observable<DoctorModel> {
+  store(doctor:CreateDoctorDto): Observable<CreateDoctorDto> {
   const url = `${this.API_URL}`;
-  return this.httpClient.post<DoctorModel>(url, doctor);
-  
+  return this.httpClient.post<CreateDoctorDto>(url, doctor);
   }
   getOne(id:DoctorModel['id_doctor']):Observable<DoctorModel> {
     const url = `${this.API_URL}/${id}`;

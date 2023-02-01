@@ -67,7 +67,8 @@
               <ng-select
                 [items]="specialities"
                 bindLabel="descripcion_especialidad"
-                [(ngModel)]="doctor.especialidades"
+                bindValue="id_especialidad"
+                [(ngModel)]="doctor.id_especialidades"
                 name="txtEspecialidad"
                 id="txtEspecialidad"
               >
