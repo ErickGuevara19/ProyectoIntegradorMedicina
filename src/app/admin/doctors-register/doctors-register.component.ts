@@ -16,10 +16,11 @@ export class DoctorsRegisterComponent implements OnInit {
   updating: boolean = false;
   ngOnInit(): void {
     this.getSpecialities()
-    if (history.state) {
+    if (history.state.id_doctor) {
       if (typeof history.state === typeof this.doctorModel ) {
-        this.doctor = history.state   
-        console.log(this.doctor)
+        delete history.state.navigationId 
+        this.doctorModel = history.state   
+        console.log(this.doctorModel)
         this.updating = true
       }
     }
@@ -43,7 +44,8 @@ export class DoctorsRegisterComponent implements OnInit {
   };
   
   registerDoctor(doctor: CreateDoctorDto) {
-    console.log(this.doctor)
+    console.log(doctor)
+    console.log('registro')
     const response = this.doctorsService
       .store(doctor)
       .subscribe((response) => {
@@ -60,7 +62,9 @@ export class DoctorsRegisterComponent implements OnInit {
     });
   }
   
-  updateDoctor(doctor: DoctorModel) {
+  updateDoctor(doctor: UpdateDoctorDto) {
+    console.log(doctor)
+    console.log('update')
     const response = this.doctorsService
       .update(doctor.id_doctor, doctor)
       .subscribe((response) => {

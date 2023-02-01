@@ -15,7 +15,7 @@
               <input
                 type="text"
                 name="txtNombre"
-                [(ngModel)]="doctor.nombre_d"
+                [(ngModel)]="updating? doctorModel.nombre_d: doctor.nombre_d"
                 id="txtNombre"
                 class="form-control"
               />
@@ -27,7 +27,7 @@
               <input
                 type="text"
                 name="txtApellido"
-                [(ngModel)]="doctor.apellidos_d"
+                [(ngModel)]="updating? doctorModel.apellidos_d: doctor.apellidos_d"
                 id="txtApellido"
                 class="form-control"
               />
@@ -41,7 +41,7 @@
               <input
                 type="email"
                 name="txtEmail"
-                [(ngModel)]="doctor.email"
+                [(ngModel)]="updating? doctorModel.email:  doctor.email"
                 id="txtEmail"
                 class="form-control"
               />
@@ -53,7 +53,7 @@
               <input
                 type="text"
                 name="txtDireccion"
-                [(ngModel)]="doctor.dirreccion_d"
+                [(ngModel)]="updating? doctorModel.dirreccion_d : doctor.dirreccion_d"
                 id="txtDireccion"
                 class="form-control"
               />
@@ -68,7 +68,7 @@
                 [items]="specialities"
                 bindLabel="descripcion_especialidad"
                 bindValue="id_especialidad"
-                [(ngModel)]="doctor.id_especialidades"
+                [(ngModel)]="updating? doctorModel.id_especialidades: doctor.id_especialidades"
                 name="txtEspecialidad"
                 id="txtEspecialidad"
               >
@@ -81,7 +81,7 @@
               <input
                 type="password"
                 name="txtContraseña"
-                [(ngModel)]="doctor.password_d"
+                [(ngModel)]="updating? doctorModel.password_d : doctor.password_d"
                 id="txtContraseña"
                 class="form-control"
               />
@@ -92,7 +92,7 @@
       <div class="card-footer">
         <div class="row">
           <div class="col-12">
-            <button (click)="registerDoctor(doctor)" class="btn btn-success">Registrar</button>
+            <button (click)="(updating? updateDoctor(doctorModel) : registerDoctor(doctor))" class="btn btn-success">Registrar</button>
           </div>
         </div>
       </div>
