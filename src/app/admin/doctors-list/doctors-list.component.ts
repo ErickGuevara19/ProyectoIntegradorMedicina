@@ -16,7 +16,7 @@ export class DoctorsListComponent implements OnInit {
   listarDoctores() {
     this.doctorsService.getAll().subscribe((res) => {
       this.doctorList = res
-      console.table(this.doctorList)
+      console.log(this.doctorList)
     });
   }
   deleteDoctor(id: number) {

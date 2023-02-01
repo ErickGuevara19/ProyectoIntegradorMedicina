@@ -20,7 +20,6 @@ export class DoctorsRegisterComponent implements OnInit {
       if (typeof history.state === typeof this.doctorModel ) {
         delete history.state.navigationId 
         this.doctorModel = history.state   
-        console.log(this.doctorModel)
         this.updating = true
       }
     }
@@ -53,7 +52,10 @@ export class DoctorsRegisterComponent implements OnInit {
       });
   }
   print(){
-    console.log(this.doctor.id_especialidades)
+    console.log(this.doctorModel.nombre_d)
+    const input = document.getElementById('txtEspecialidad') as HTMLInputElement
+    console.log(input.value);
+    
   }
 
   async getSpecialities(){

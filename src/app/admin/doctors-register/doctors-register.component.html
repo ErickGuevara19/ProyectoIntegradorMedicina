@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify content-center mb-3">
-  <div class="col">
-    <div class="card">
+  <div class="col ">
+    <div  class="card" *ngIf="!updating">
         <div class="card-header">
             <h5>Registro de Doctores</h5>
         </div>
@@ -15,8 +15,9 @@
               <input
                 type="text"
                 name="txtNombre"
-                [(ngModel)]="updating? doctorModel.nombre_d: doctor.nombre_d"
+                [(ngModel)]="doctor.nombre_d"
                 id="txtNombre"
+                (change)="print()"
                 class="form-control"
               />
             </div>
@@ -27,7 +28,7 @@
               <input
                 type="text"
                 name="txtApellido"
-                [(ngModel)]="updating? doctorModel.apellidos_d: doctor.apellidos_d"
+                [(ngModel)]="doctor.apellidos_d"
                 id="txtApellido"
                 class="form-control"
               />
@@ -41,7 +42,7 @@
               <input
                 type="email"
                 name="txtEmail"
-                [(ngModel)]="updating? doctorModel.email:  doctor.email"
+                [(ngModel)]="doctor.email"
                 id="txtEmail"
                 class="form-control"
               />
@@ -53,7 +54,7 @@
               <input
                 type="text"
                 name="txtDireccion"
-                [(ngModel)]="updating? doctorModel.dirreccion_d : doctor.dirreccion_d"
+                [(ngModel)]="doctor.dirreccion_d"
                 id="txtDireccion"
                 class="form-control"
               />
@@ -68,7 +69,7 @@
                 [items]="specialities"
                 bindLabel="descripcion_especialidad"
                 bindValue="id_especialidad"
-                [(ngModel)]="updating? doctorModel.id_especialidades: doctor.id_especialidades"
+                [(ngModel)]="doctor.id_especialidades"
                 name="txtEspecialidad"
                 id="txtEspecialidad"
               >
@@ -81,7 +82,7 @@
               <input
                 type="password"
                 name="txtContraseña"
-                [(ngModel)]="updating? doctorModel.password_d : doctor.password_d"
+                [(ngModel)]="doctor.password_d"
                 id="txtContraseña"
                 class="form-control"
               />
@@ -97,5 +98,103 @@
         </div>
       </div>
     </div>
+
+    <div  class="card" *ngIf="updating">
+      <div class="card-header">
+          <h5>Registro de Doctores</h5>
+      </div>
+    <div class="row p-3">
+      <div class="col">
+        <div class="mb-3 row justifyContent-between">
+          <div class="col-lg-6 col-md-6">
+            <label for="txtNombre" class="fw-semibold form-label"
+              >Nombres:</label
+            >
+            <input
+              type="text"
+              name="txtNombre"
+              [(ngModel)]="doctorModel.nombre_d"
+              id="txtNombre"
+              (change)="print()"
+              class="form-control"
+            />
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <label for="txtApellido" class="fw-semibold form-label"
+              >Apellidos:</label
+            >
+            <input
+              type="text"
+              name="txtApellido"
+              [(ngModel)]="doctorModel.apellidos_d"
+              id="txtApellido"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row justifyContent-between">
+          <div class="col-lg-6 col-md-6">
+            <label for="txtEmail" class="fw-semibold form-label"
+              >Email:</label
+            >
+            <input
+              type="email"
+              name="txtEmail"
+              [(ngModel)]="doctorModel.email"
+              id="txtEmail"
+              class="form-control"
+            />
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <label for="txtDireccion" class="fw-semibold form-label"
+              >Dirección:</label
+            >
+            <input
+              type="text"
+              name="txtDireccion"
+              [(ngModel)]="doctorModel.dirreccion_d"
+              id="txtDireccion"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row justifyContent-between">
+          <div class="col-lg-6 col-md-6">
+            <label for="txtEspecialidad" class="fw-semibold form-label"
+              >Especialidades:</label
+            >
+            <ng-select
+              [items]="specialities"
+              bindLabel="descripcion_especialidad"
+              bindValue="id_especialidad"
+              [(ngModel)]="doctorModel.id_especialidades"
+              name="txtEspecialidad"
+              id="txtEspecialidad"
+            >
+            </ng-select>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <label for="txtContraseña" class="fw-semibold form-label"
+              >Contraseña:</label
+            >
+            <input
+              type="password"
+              name="txtContraseña"
+              [(ngModel)]="doctorModel.password_d"
+              id="txtContraseña"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-12">
+          <button (click)="(updating? updateDoctor(doctorModel) : registerDoctor(doctor))" class="btn btn-success">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 </div> </div>
