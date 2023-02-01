@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { DoctorModel } from 'src/app/entities/doctor.model';
-import { MedicalsectionModel } from 'src/app/entities/medical.section.model';
+import { MedicalsectionModel } from 'src/app/entities/medicalselection.model';
 import { PatientModel } from 'src/app/entities/patients.model';
 import { DoctorsService } from 'src/app/services/doctors.service';
-import { MedicalSelectionService } from 'src/app/services/medical-selection.service';
+import { MedicalselectionService } from 'src/app/services/medicalselection.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { SpecialitiesService } from 'src/app/services/specialities.service';
 
@@ -14,7 +14,7 @@ import { SpecialitiesService } from 'src/app/services/specialities.service';
   styleUrls: ['./medical-appointment-selection.component.css']
 })
 export class MedicalAppointmentSelectionComponent {
-  constructor(private medicalselectionService:MedicalSelectionService, private patientService:PatientService, private doctorsService:DoctorsService){}
+  constructor(private medicalselectionService:MedicalselectionService, private patientService:PatientService, private doctorsService:DoctorsService){}
   ngOnInit(): void {
     this.listarDoctores();
 
@@ -77,21 +77,23 @@ export class MedicalAppointmentSelectionComponent {
         direccion_paciente:'',
         telefono_paciente:'',
         email_paciente:'',
+        password_paciente: '',
         tlf_familiar_paciente:'',
-        fecha_nacimiento_paciente: new Date,
+        fecha_nacimiento_paciente: '',
         genero_paciente: true,
         alergias: {    id_alergia:0,
           nombre_alergia:  '0',
           descripcion_alergia:'',},
-        dicapacidades:{    id_discapacidades:0,
+        discapacidades:{     
+          id_discapacidades:0,
           nombre_discapacidad: '',
-          descripcion_discacidad: ''}},
+          descripcion_discapacidad: ''}},
       id_doctor:{  id_doctor:0,
         nombre_d:'',
         apellidos_d:'',
         email:'',
         dirreccion_d:'',
-        contrasenia_d:'',
+        password_d:'',
         especialidades: {    
           id_especialidades: 0,
           descripcion_especialidad: ''}},

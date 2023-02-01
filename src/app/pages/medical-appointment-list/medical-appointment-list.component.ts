@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { MedicalappointmentAsignationModel } from 'src/app/entities/medical.list.model';
+import { MedicalappointmentAsignationModel } from 'src/app/entities/medicallist.model';
 
-import { MedicallistService } from 'src/app/services/medical-list.service';
+import { MedicallistService } from 'src/app/services/medicallist.service';
 
 @Component({
   selector: 'app-medical-appointment-list',
@@ -34,21 +34,23 @@ medicales: any;
         direccion_paciente:'lolo',
         telefono_paciente:'lolo',
         email_paciente:'lolo',
+        password_paciente:'lol',
         tlf_familiar_paciente:'lolo',
-        fecha_nacimiento_paciente: new Date,
+        fecha_nacimiento_paciente: '',
         genero_paciente: true,
         alergias: {    id_alergia:0,
           nombre_alergia:  'lolo',
           descripcion_alergia:'lolo',},
-        dicapacidades:{    id_discapacidades:5,
+        discapacidades:{    
+          id_discapacidades:5,
           nombre_discapacidad: 'lolo',
-          descripcion_discacidad: 'lolo'}},
+          descripcion_discapacidad: 'lolo'}},
       id_doctor:{  id_doctor:9,
         nombre_d:'lolo',
         apellidos_d:'lolo',
         email:'lolo',
         dirreccion_d:'lolo',
-        contrasenia_d:'lolo',
+        password_d:'lolo',
         especialidades: {    
           id_especialidades: 8,
           descripcion_especialidad: 'lolo'}},
@@ -64,7 +66,7 @@ medicales: any;
         apellidos_d:'johan',
         email:'jose@',
         dirreccion_d:'lola',
-        contrasenia_d:'lolaaa',
+        password_d:'lolaaa',
         especialidades: {    id_especialidades
           :3,
           descripcion_especialidad: 'joe'}}},
