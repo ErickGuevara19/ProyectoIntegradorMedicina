@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DoctorModel } from 'src/app/entities/doctor.model';
-import { MedicalsectionModel } from 'src/app/entities/medicalselection.model';
+import { CreateMedicalSection, MedicalsectionModel } from 'src/app/entities/medicalselection.model';
 import { PatientModel } from 'src/app/entities/patients.model';
 import { DoctorsService } from 'src/app/services/doctors.service';
 import { MedicalselectionService } from 'src/app/services/medicalselection.service';
@@ -17,10 +17,12 @@ export class MedicalAppointmentSelectionComponent {
   constructor(private medicalselectionService:MedicalselectionService, private patientService:PatientService, private doctorsService:DoctorsService){}
   ngOnInit(): void {
     this.listarDoctores();
-
+    this.listarPacientes();
   }
   pacientes: PatientModel[]=[]
   doctors : DoctorModel[]=[]
+  nombrepaciente: string = ''
+  nombredoctor: string = ''
 
   /*private doctorService = Inject(DoctorsService);
   doctor: DoctorModel = {
@@ -69,39 +71,16 @@ export class MedicalAppointmentSelectionComponent {
   //    console.log(response);
   //  });
   //}
-  MedicalAppoinment:MedicalsectionModel = {    
-      id_citamedica: 0,
-      id_paciente: {    id_paciente:0,
-        nombre_paciente:'',
-        apellido_paciente:'',
-        direccion_paciente:'',
-        telefono_paciente:'',
-        email_paciente:'',
-        password_paciente: '',
-        tlf_familiar_paciente:'',
-        fecha_nacimiento_paciente: '',
-        genero_paciente: true,
-        alergias: {    id_alergia:0,
-          nombre_alergia:  '0',
-          descripcion_alergia:'',},
-        discapacidades:{     
-          id_discapacidades:0,
-          nombre_discapacidad: '',
-          descripcion_discapacidad: ''}},
-      id_doctor:{  id_doctor:0,
-        nombre_d:'',
-        apellidos_d:'',
-        email:'',
-        dirreccion_d:'',
-        password_d:'',
-        especialidades: {    
-          id_especialidades: 0,
-          descripcion_especialidad: ''}},
+  MedicalAppoinment:CreateMedicalSection = {    
+      id_cita_medica:0,
+      id_paciente: 0,
+      id_doctor: 0,
       fecha_asignada: new Date(),
       hora_inicio: '',
-      hora_finalizacion:'',}
+      hora_fin:'',}
  
       print (){console.table(this.MedicalAppoinment)}
+
 
       listarPacientes(){
         this.patientService.getAllPacientes().subscribe((res) =>{
@@ -119,22 +98,26 @@ export class MedicalAppointmentSelectionComponent {
       }
 
       comparepatients(){
+        console.log(this.MedicalAppoinment)
         this.pacientes.forEach(paciente => {
-          if (this.MedicalAppoinment.id_paciente.nombre_paciente === paciente.nombre_paciente) {
-            this.MedicalAppoinment.id_paciente = paciente
+          if (this.nombrepaciente === paciente.nombre_paciente) {
+            this.MedicalAppoinment.id_paciente = paciente.id_paciente
           }
         });
       }
 
       comparedoctors(){
         this.doctors.forEach(doctor => {
-          if (this.MedicalAppoinment.id_doctor.nombre_d === doctor.nombre_d) {
-            this.MedicalAppoinment.id_doctor = doctor
+          if (this.nombredoctor === doctor.nombre_d) {
+            this.MedicalAppoinment.id_doctor = doctor.id_doctor
           }
         });
       }
 
-      registermedical(medical: MedicalsectionModel) {
+      registermedical(medical: CreateMedicalSection) {
+        medical.hora_inicio= medical.hora_inicio + ':00'
+        medical.hora_fin= medical.hora_fin + ':00'
+        console.log(medical)
         const response = this.medicalselectionService
           .store(medical)
           .subscribe((response) => {

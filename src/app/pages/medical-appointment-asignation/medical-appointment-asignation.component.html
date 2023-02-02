@@ -1,0 +1,23 @@
+<div class="register" *ngIf="Updating">
+    <div class="register-triangle"></div>
+    
+    <h2 class="register-header">Registro de Citas Medicas</h2>
+  
+    <form class="register-container">
+      <p><ng-select bindLabel="id_cita_medica" bindValue="id_cita_medica" name="id_cita_medica" [(ngModel)]="Create.id_cita_medica" [items]="MedicalCita"></ng-select></p>
+      <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio" [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
+      <input type="submit" value="Submit" (click)="registerMedical(Create)">
+    </form>
+</div>
+
+<div class="register" *ngIf="!Updating">
+    <div class="register-triangle"></div>
+    
+    <h2 class="register-header">Registro de Citas Medicas</h2>
+  
+    <form class="register-container">
+      <p><ng-select bindLabel="id_cita_medica" bindValue="id_cita_medica" name="id_cita_medica" [(ngModel)]="Create.id_cita_medica" [items]="MedicalCita"></ng-select></p>
+      <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio" [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
+      <input type="submit" value="Submit" (click)="registerMedical(Create)">
+    </form>
+</div>

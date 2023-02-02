@@ -26,8 +26,8 @@ medicales: any;
 
   Prueba:MedicalappointmentAsignationModel = {    
     id_asignacion_medica: 1,
-    id_citamedica: {
-      id_citamedica: 1,
+    id_cita_medica: {
+      id_cita_medica: 1,
       id_paciente: {    id_paciente:9,
         nombre_paciente:'lolo',
         apellido_paciente:'lolo',
@@ -56,7 +56,7 @@ medicales: any;
           descripcion_especialidad: 'lolo'}},
       fecha_asignada: new Date(),
       hora_inicio: '12:00',
-      hora_finalizacion:'loli',},
+      hora_fin:'loli',},
     id_consultorio: {	
       id_consultorio: 1,
       nombre_consultorio: 'lola',
