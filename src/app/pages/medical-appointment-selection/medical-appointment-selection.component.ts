@@ -72,6 +72,7 @@ export class MedicalAppointmentSelectionComponent {
   //  });
   //}
   MedicalAppoinment:CreateMedicalSection = {    
+      id_cita_medica:0,
       id_paciente: 0,
       id_doctor: 0,
       fecha_asignada: new Date(),

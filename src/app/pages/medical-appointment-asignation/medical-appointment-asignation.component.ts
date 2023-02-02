@@ -50,13 +50,13 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
   }
 
   Create:CreateMedicalAsignationModel = {    
-    id_citamedica: 0,
+    id_cita_medica: 0,
     id_consultorio:0,
   }
 
   Update:UpdateMedicalAsignationModel = {   
     id_asignacion_medica:0 ,
-    id_citamedica: 0,
+    id_cita_medica: 0,
     id_consultorio:0,
   }
 

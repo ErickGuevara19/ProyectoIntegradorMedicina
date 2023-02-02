@@ -20,15 +20,15 @@ export class MedicalselectionService {
   return this.httpClient.post<CreateMedicalSection>(url, medicalselection);
   
   }
-  getOne(id:MedicalsectionModel['id_citamedica']):Observable<MedicalsectionModel> {
+  getOne(id:MedicalsectionModel['id_cita_medica']):Observable<MedicalsectionModel> {
     const url = `${this.API_URL}/${id}`;
     return this.httpClient.get<MedicalsectionModel>(url);
   }
-  update(id:MedicalsectionModel['id_citamedica'], product: UpdateDoctorDto) {
+  update(id:MedicalsectionModel['id_cita_medica'], product: UpdateDoctorDto) {
     const url = `${this.API_URL}/${id}`
     return this.httpClient.put(url, product);
   }
-  destroy(id:MedicalsectionModel['id_citamedica']):Observable<any> {
+  destroy(id:MedicalsectionModel['id_cita_medica']):Observable<any> {
     const url = `${this.API_URL}/${id}`
     return this.httpClient.delete<any>(url).
     pipe(map((response:{rta:boolean})=>{return response.rta;}));

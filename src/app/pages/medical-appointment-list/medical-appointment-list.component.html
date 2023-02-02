@@ -20,11 +20,11 @@
         </thead>
         <tbody>
           <tr class="" *ngFor ="let medical of Medicalappointment" >
-            <td>{{medical.id_citamedica.id_paciente.nombre_paciente}}</td>
-            <td>{{medical.id_citamedica.id_doctor.nombre_d}}</td>
-            <td>{{medical.id_citamedica.fecha_asignada}}</td>
-            <td>{{medical.id_citamedica.hora_inicio}}</td>
-            <td>{{medical.id_citamedica.hora_fin}}</td>
+            <td>{{medical.id_cita_medica.id_paciente.nombre_paciente}}</td>
+            <td>{{medical.id_cita_medica.id_doctor.nombre_d}}</td>
+            <td>{{medical.id_cita_medica.fecha_asignada}}</td>
+            <td>{{medical.id_cita_medica.hora_inicio}}</td>
+            <td>{{medical.id_cita_medica.hora_fin}}</td>
             <td>{{medical.id_consultorio.nombre_consultorio}}</td>
           </tr>
         </tbody>

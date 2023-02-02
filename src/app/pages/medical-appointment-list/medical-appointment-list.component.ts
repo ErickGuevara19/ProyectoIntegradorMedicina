@@ -26,8 +26,8 @@ medicales: any;
 
   Prueba:MedicalappointmentAsignationModel = {    
     id_asignacion_medica: 1,
-    id_citamedica: {
-      id_citamedica: 1,
+    id_cita_medica: {
+      id_cita_medica: 1,
       id_paciente: {    id_paciente:9,
         nombre_paciente:'lolo',
         apellido_paciente:'lolo',
