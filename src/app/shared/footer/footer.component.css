@@ -1,11 +1,21 @@
-.body{
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+.body{
+    border: 1px solid black;
     position: relative;
     display: flex;
+    margin-top: 495px;
     flex-direction: column;
-    min-height: 100vh;
+    max-width: 100%;
+ 
 }
 footer{
+   border: 1px solid black;
    margin-top: auto;
+   margin-left: 275px;
+   padding-right: 3px;
+   overflow: hidden;
 }
