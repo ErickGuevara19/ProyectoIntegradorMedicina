@@ -56,7 +56,7 @@ medicales: any;
           descripcion_especialidad: 'lolo'}},
       fecha_asignada: new Date(),
       hora_inicio: '12:00',
-      hora_finalizacion:'loli',},
+      hora_fin:'loli',},
     id_consultorio: {	
       id_consultorio: 1,
       nombre_consultorio: 'lola',

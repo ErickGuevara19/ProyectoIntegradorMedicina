@@ -7,6 +7,8 @@ import { MedicalAppointmentListComponent } from './medical-appointment-list/medi
 import { MedicalAppointmentSelectionComponent } from './medical-appointment-selection/medical-appointment-selection.component';
 import { PatientsTokenComponent } from './patients-token/patients-token.component';
 import { FormsModule, NgForm } from '@angular/forms';
+import { MedicalAppointmentAsignationComponent } from './medical-appointment-asignation/medical-appointment-asignation.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -18,11 +20,13 @@ import { FormsModule, NgForm } from '@angular/forms';
     DoctorsTokenComponent,
     MedicalAppointmentListComponent,
     MedicalAppointmentSelectionComponent,
-    PatientsTokenComponent
+    PatientsTokenComponent,
+    MedicalAppointmentAsignationComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
+    NgSelectModule
   ],
   exports: [
     DashboardDoctorsComponent,
@@ -31,6 +35,7 @@ import { FormsModule, NgForm } from '@angular/forms';
     MedicalAppointmentListComponent,
     MedicalAppointmentSelectionComponent,
     PatientsTokenComponent,
+    MedicalAppointmentAsignationComponent
     
   ],
 })

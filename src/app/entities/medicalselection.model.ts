@@ -9,6 +9,12 @@ export interface MedicalsectionModel{
     id_doctor: DoctorModel;
     fecha_asignada: Date;
     hora_inicio: string;
-    hora_finalizacion: string;
+    hora_fin: string;
 
 }
+
+export interface CreateMedicalSection extends Omit<MedicalsectionModel, 'id_paciente' | 'id_doctor' | 'id_citamedica'>{
+    id_paciente:number;
+    id_doctor: number
+    }
+  
