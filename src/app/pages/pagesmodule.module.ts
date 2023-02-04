@@ -9,6 +9,8 @@ import { PatientsTokenComponent } from './patients-token/patients-token.componen
 import { FormsModule, NgForm } from '@angular/forms';
 import { MedicalAppointmentAsignationComponent } from './medical-appointment-asignation/medical-appointment-asignation.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { RouterModule } from '@angular/router';
+
 
 
 
@@ -26,7 +28,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
   imports: [
     CommonModule,
     FormsModule,
-    NgSelectModule
+    NgSelectModule,
+    RouterModule
+    
   ],
   exports: [
     DashboardDoctorsComponent,
@@ -35,8 +39,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MedicalAppointmentListComponent,
     MedicalAppointmentSelectionComponent,
     PatientsTokenComponent,
-    MedicalAppointmentAsignationComponent
-    
+    MedicalAppointmentAsignationComponent,
+   
   ],
 })
 export class PagesmoduleModule { }

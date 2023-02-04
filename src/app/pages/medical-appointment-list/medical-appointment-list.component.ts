@@ -36,7 +36,7 @@ medicales: any;
         email_paciente:'lolo',
         password_paciente:'lol',
         tlf_familiar_paciente:'lolo',
-        fecha_nacimiento_paciente: '',
+        fecha_nacimiento_paciente: new Date,
         genero_paciente: true,
         alergias: {    id_alergia:0,
           nombre_alergia:  'lolo',
