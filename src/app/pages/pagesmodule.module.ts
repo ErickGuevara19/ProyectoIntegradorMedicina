@@ -6,6 +6,7 @@ import { DoctorsTokenComponent } from './doctors-token/doctors-token.component';
 import { MedicalAppointmentListComponent } from './medical-appointment-list/medical-appointment-list.component';
 import { MedicalAppointmentSelectionComponent } from './medical-appointment-selection/medical-appointment-selection.component';
 import { PatientsTokenComponent } from './patients-token/patients-token.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -20,7 +21,8 @@ import { PatientsTokenComponent } from './patients-token/patients-token.componen
     PatientsTokenComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     DashboardDoctorsComponent,

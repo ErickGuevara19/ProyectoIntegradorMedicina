@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="main-content">
+                <div class="main-content" *ngIf ="!updating">
                     <h1>Formulario de Registro de Paciente</h1>
                         <form action="">
                         <div class="form-row">
@@ -30,7 +30,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="contraseña">Contraseña</label>
-                                <input type="text" class="form-control" id="contraseña" placeholder="Contraseña" name="contraseña"[(ngModel)] ="paciente.password_paciente">
+                                <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" name="contraseña"[(ngModel)] ="paciente.password_paciente">
                             </div>
                             
                         </div>
@@ -43,8 +43,8 @@
                                 <label for="sexo">Sexo</label>
                                 <select id="sexo" class="form-control" name="genero" [(ngModel)]="paciente.genero_paciente">
                                     <option selected>Seleccionar...</option>
-                                    <option>Masculino</option>
-                                    <option>Femenino</option>
+                                    <option value=true>Masculino</option>
+                                    <option value =false>Femenino</option>
                                 </select>
                             </div>
                         </div>
@@ -87,7 +87,89 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <input type="submit" value="Registrar" class="btn btn-primary"[routerLink]="['/login']" onclick="guardarPaciente">
+                                <input type="submit" value="Registrar" class="btn btn-primary"[routerLink]="['/login']" (click)="registerPaciente(paciente)">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="main-content" *ngIf ="updating">
+                    <h1>Formulario de Actualizacion de Paciente</h1>
+                        <form action="">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="nombre">Nombres</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombres" name ="nombres"[(ngModel)]="patientModel.nombre_paciente">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="apellidos">Apellidos</label>
+                                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" name="apellidos"[(ngModel)]= "patientModel.apellido_paciente">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Correo Electronico" name="email"[(ngModel)]="patientModel.email_paciente">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="contraseña">Contraseña</label>
+                                <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" name="contraseña"[(ngModel)] ="patientModel.password_paciente">
+                            </div>
+                            
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" id="fecha_nacimiento" placeholder="Fecha de Nacimiento" name="fecha_nacimiento" [(ngModel)] = "patientModel.fecha_nacimiento_paciente">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="sexo">Sexo</label>
+                                <select id="sexo" class="form-control" name="genero" [(ngModel)]="patientModel.genero_paciente">
+                                    <option selected>Seleccionar...</option>
+                                    <option value=true>Masculino</option>
+                                    <option value =false>Femenino</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="direccion">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" placeholder="Dirección" name ="dirreccion"[(ngModel)] ="patientModel.direccion_paciente">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="telefono">Teléfono</label>
+                                <input type="text" class="form-control" id="telefono" placeholder="Teléfono" name="telefono" [(ngModel)]="patientModel.telefono_paciente">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="telefono_familiar">Teléfono Familiar</label>
+                                <input type="text" class="form-control" id="telefono_familiar" placeholder="Teléfono Familiar" name =" telefono_familiar"[(ngModel)] ="patientModel.tlf_familiar_paciente">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                    <label for="inputAlergias">Alergias</label>
+                                    <ng-select
+                                        [items]="alergias"
+                                        bindLabel="nombre_alergia"
+                                        bindValue="id_alergia"
+                                        [(ngModel)]="patientModel.id_alergias"
+                                        name="txtalegias"
+                                        id="txtalergias">
+                                    </ng-select>
+                                    
+                                </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputDiscapacidad">Discapacidad</label>
+                                <ng-select
+                                  [items]="discapacidades"
+                                  bindLabel="nombre_discapacidad"
+                                  bindValue="id_discapacidades"
+                                  [(ngModel)]="patientModel.id_discapacidades"
+                                  name="txtalergias"
+                                  id="txtalergias">
+                                </ng-select>
+                               </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="submit" value="Actualizar" class="btn btn-primary"(click)="updateDoctor(patientModel)">
                             </div>
                         </div>
                     </form>

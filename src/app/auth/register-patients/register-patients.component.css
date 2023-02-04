@@ -16,7 +16,7 @@ h1{
     color: #2abef8;
     text-align:center;
 }
-select,input{
+select,input,ng-select{
     background: #6bc8ec;
     color: #FFFFFF;
     padding: 5px;

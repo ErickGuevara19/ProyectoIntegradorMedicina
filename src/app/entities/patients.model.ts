@@ -10,19 +10,17 @@ export interface PatientModel{
     email_paciente:string,
     password_paciente:string,
     tlf_familiar_paciente:string,
-    fecha_nacimiento_paciente: string,
+    fecha_nacimiento_paciente: Date,
     genero_paciente: Boolean,
     alergias: AlergiasModel,
     discapacidades: DiscapacidadesModel,
 }
-export interface CreateDoctorDto extends Omit<PatientModel, 'id' | 'alergias'| 'discapacidades'>{
-    id_especialidades:number;
-    id_alergia:number;
+export interface CreatePacientesDto extends Omit<PatientModel, 'id'>{
     }
   
-  export interface UpdateDoctorDto extends Partial<PatientModel>{
-    id_especialidades?:number;
-    id_alergia?:number;
+  export interface UpdatePacientesDto extends Omit<PatientModel,'alergias'|'discapacidades'>{
+    id_discapacidades:number;
+    id_alergias:number;
   }
   
   
