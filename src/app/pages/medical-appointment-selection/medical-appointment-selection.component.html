@@ -1,1 +1,15 @@
-<p>medical-appointment-selection works!</p>
+<div class="register">
+    <div class="register-triangle"></div>
+    
+    <h2 class="register-header">Registro de Citas Medicas</h2>
+  
+    <form class="register-container">
+      <p><input type="text" name="name" [(ngModel)]="nombrepaciente" (change)="comparepatients()" placeholder="Nombre del Paciente"></p>
+      <p><input type="text" name="doctor" [(ngModel)]="nombredoctor" (change)="comparedoctors()" placeholder="Nombre de Doctor"></p>
+      <p><input type="date" name="date" [(ngModel)]="MedicalAppoinment.fecha_asignada" placeholder="Fecha Asignada"></p>
+      <p><input type="time"name="date_init" [(ngModel)]="MedicalAppoinment.hora_inicio" placeholder="Hora de Inicio"></p>
+      <p><input type="time" name="date_end" [(ngModel)]="MedicalAppoinment.hora_fin" placeholder="Hora finalizada"></p>
+          
+      <input type="submit" value="Submit" (click)="registermedical(MedicalAppoinment)">
+    </form>
+</div>

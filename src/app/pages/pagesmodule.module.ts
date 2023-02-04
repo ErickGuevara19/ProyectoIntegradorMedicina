@@ -6,7 +6,9 @@ import { DoctorsTokenComponent } from './doctors-token/doctors-token.component';
 import { MedicalAppointmentListComponent } from './medical-appointment-list/medical-appointment-list.component';
 import { MedicalAppointmentSelectionComponent } from './medical-appointment-selection/medical-appointment-selection.component';
 import { PatientsTokenComponent } from './patients-token/patients-token.component';
-import { RouterModule } from '@angular/router';
+import { FormsModule, NgForm } from '@angular/forms';
+import { MedicalAppointmentAsignationComponent } from './medical-appointment-asignation/medical-appointment-asignation.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -18,11 +20,13 @@ import { RouterModule } from '@angular/router';
     DoctorsTokenComponent,
     MedicalAppointmentListComponent,
     MedicalAppointmentSelectionComponent,
-    PatientsTokenComponent
+    PatientsTokenComponent,
+    MedicalAppointmentAsignationComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    FormsModule,
+    NgSelectModule
   ],
   exports: [
     DashboardDoctorsComponent,
@@ -31,6 +35,7 @@ import { RouterModule } from '@angular/router';
     MedicalAppointmentListComponent,
     MedicalAppointmentSelectionComponent,
     PatientsTokenComponent,
+    MedicalAppointmentAsignationComponent
     
   ],
 })

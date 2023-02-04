@@ -1,45 +1,64 @@
-<div class="container-fluid">
-  <div class="row justify-conten-center">
-    <div class="col-lg-12 col-md-6">
-      <div class="table-responsive">
-        <table class="table table-striped align-middle">
-          <thead class="table-light">
-            <caption>
-              Listado
-            </caption>
-            <tr>
-              <th>Nombre</th>
-              <th>Email</th>
-              <th>Dirección</th>
-              <th>Especialidad</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody class="table-group-divider">
-            <tr *ngFor="let doctor of doctorList" class="table-primary">
-              <td scope="row">
-                {{ doctor.nombre_d }} + {{ doctor.apellidos_d }}
-              </td>
-              <td>{{ doctor.dirreccion_d }}</td>
-              <td>{{ doctor.email }}</td>
-              <td>{{ doctor }}</td>
-              <td>
-                <a
-                  class=" btn btn-primary mb-1"
-                  [routerLink]="['../doctor-register']"
-                  [state]="doctor"
-                  >Editar</a
-                ><button
-                  (click)="deleteDoctor(doctor.id_doctor)"
-                  class=" btn btn-danger"
-                >
-                  Eliminar
-                </button>
-              </td>
-            </tr>
-          </tbody>
-          <tfoot></tfoot>
-        </table>
+<div class="contenedor">
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row justifyContent-between">
+              <div class="col-lg-1 col-md-1"><label class="fw-semibold form-label" for="filterNombre">Nombre:</label></div>
+              <div class="col-lg-3 col-md-3"><input [(ngModel)]="filterName" id="filterNombre" name="filterNombre" class="form-control" type="text"></div>
+              <div class="col-lg-1 col-md-1"><label class="fw-semibold form-label" for="filterEmail">Email:</label></div>
+              <div class="col-lg-3 col-md-3"><input [(ngModel)]="filterEmail" id="filterEmail" name="filterEmail" class="form-control" type="text"></div>
+              <div class="col-lg-1 col-md-1"><label class="fw-semibold form-label" for="filterEspecialidad">Especialidad:</label></div>
+              <div class="col-lg-3 col-md-3"><input [(ngModel)]="filterEspecialidad" id="filterEspecialidad" name="filterEspecialidad" class="form-control" type="text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-12 col-md-6">
+        <div class="table-responsive">
+          <table class="table table-striped align-middle">
+            <thead class="table-">
+              <caption>
+                Listado
+              </caption>
+              <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Dirección</th>
+                <th>Especialidad</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr *ngFor="let doctor of doctorList" class="table-primary">
+                <td scope="row">
+                  {{ doctor.nombre_d }} + {{ doctor.apellidos_d }}
+                </td>
+                <td>{{ doctor.email }}</td>
+                <td>{{ doctor.dirreccion_d }}</td>
+                <td>{{ doctor }}</td>
+                <td>
+                  <a
+                    class=" btn btn-primary mb-1"
+                    [routerLink]="['../doctor-register']"
+                    [state]="doctor"
+                    >Editar</a
+                  ><button
+                    (click)="deleteDoctor(doctor.id_doctor)"
+                    class=" btn btn-danger"
+                  >
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot></tfoot>
+          </table>
+        </div>
       </div>
     </div>
   </div>

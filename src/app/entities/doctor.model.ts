@@ -14,6 +14,7 @@ export interface CreateDoctorDto extends Omit<DoctorModel, 'id_doctor' | 'especi
   id_especialidades:number;
   }
 
+
 export interface UpdateDoctorDto extends  Omit<DoctorModel, 'especialidades'>{
   id_especialidades:number;
 }

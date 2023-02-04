@@ -32,6 +32,7 @@ import { PipeloginPipe } from './pipes/pipelogin.pipe';
     AuthmoduleModule,
     FormsModule,
     HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

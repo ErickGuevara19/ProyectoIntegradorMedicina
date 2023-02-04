@@ -1,0 +1,9 @@
+.contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-fluid{
+    align-items: center;
+    justify-content: center;
+}
