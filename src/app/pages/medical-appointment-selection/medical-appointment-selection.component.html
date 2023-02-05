@@ -1,18 +1,46 @@
-<div class="register">
-  <div class="register-triangle"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registro de Citas Medicas</title>
+  <link rel="stylesheet" href="medical-appointment-selection.component.css">
+</head>
+<body>
+  <div class="signupFrm">
+    <form action="" class="form">
+      <h1 class="title">Registro de Citas Medicas</h1>
 
-  <h2 class="register-header">Registro de Citas Medicas</h2>
+      <div class="inputContainer">
+        <input class="input" type="text" name="name" [(ngModel)]="nombrepaciente" (change)="comparepatients()"
+          placeholder="Nombre del Paciente">
+        <label for="" class="label">Nombre del Paciente</label>
+      </div>
 
-  <form class="register-container">
+      <div class="inputContainer">
+        <input class="input" type="text" name="doctor" [(ngModel)]="nombredoctor" (change)="comparedoctors()"
+          placeholder="Nombre de Doctor">
+        <label for="" class="label">Nombre del Doctor</label>
+      </div>
 
-    <p><input type="text" name="name" [(ngModel)]="nombrepaciente" (change)="comparepatients()"
-        placeholder="Nombre del Paciente"></p>
-    <p><input type="text" name="doctor" [(ngModel)]="nombredoctor" (change)="comparedoctors()"
-        placeholder="Nombre de Doctor"></p>
-    <p><input type="date" name="date" [(ngModel)]="MedicalAppoinment.fecha_asignada" placeholder="Fecha Asignada"></p>
-    <p><input type="time" name="date_init" [(ngModel)]="MedicalAppoinment.hora_inicio" placeholder="Hora de Inicio"></p>
-    <p><input type="time" name="date_end" [(ngModel)]="MedicalAppoinment.hora_fin" placeholder="Hora finalizada"></p>
-    <input type="submit" value="Submit" (click)="registermedical(MedicalAppoinment)">
-  </form>
+      <div class="inputContainer">
+        <input class="input" type="date" name="date" [(ngModel)]="MedicalAppoinment.fecha_asignada" placeholder="Fecha Asignada">
+      </div>
 
-</div>
+      <div class="inputContainer">
+        <input class="input" type="time" name="date_init" [(ngModel)]="MedicalAppoinment.hora_inicio" placeholder="Hora de Inicio">
+      </div>
+
+      <div class="inputContainer">
+        <input class="input" type="time" name="date_end" [(ngModel)]="MedicalAppoinment.hora_fin" placeholder="Hora finalizada">
+      </div>
+
+      <input class="submitBtn" type="submit" value="Submit" (click)="registermedical(MedicalAppoinment)">
+
+
+    </form>
+  </div>
+</body>
+</html>
+
