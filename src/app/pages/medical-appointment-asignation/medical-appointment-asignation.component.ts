@@ -14,7 +14,9 @@ import { MedicalselectionService } from 'src/app/services/medicalselection.servi
 export class MedicalAppointmentAsignationComponent implements OnInit {
   ngOnInit(): void {
     this.AsignationMedical()
-    this.Consultorio.push(this.Objeto)
+    this.AsignationCosultorio()
+    this.Model()
+    
    /*this.AsignationCosultorio()*/
     if (history.state.id_asignacion_medica) {
       if (typeof history.state === typeof this.Create ) {
@@ -27,6 +29,7 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
   constructor(private medicalAsignationService:MedicalasignationService, private medicalselectionService:MedicalselectionService, private consultorioService:ConsultorioService){}
   MedicalCita: MedicalsectionModel[]=[]
   Consultorio : ConsultorioModel[]=[]
+  Updatelist: UpdateMedicalAsignationModel[]=[]
   Updating: boolean= false
 
   registerMedical(medicalAsignation: CreateMedicalAsignationModel) {
@@ -79,4 +82,34 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
     referencia:'Lab1',
     nombre_doctor:'Hernesto'}
 
+    Model(){
+      const myModal = document.getElementById('myModel') as HTMLElement
+      const myInput = document.getElementById('myInput') as HTMLInputElement
+      
+      myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+      })
+      
+    }
+    
+    cleanmodel(id:number){
+      this.Create.id_consultorio =1,
+      this.Create.id_cita_medica=id
+    }
+
+    GetByMedical(id:number) { 
+      console.log(id)
+      this.medicalAsignationService.getOne(id).subscribe((res) => {
+        this.Updatelist = res
+        console.table(this.Updatelist)
+      });
+    }
+
+    Editar(id:number){      
+      this.Update.id_cita_medica= id  
+      console.log(this.Updatelist[0])
+      this.Update.id_asignacion_medica= this.Updatelist[0].id_asignacion_medica
+      this.Update.id_consultorio= this.Updatelist[0].id_consultorio
+
+    }
 }

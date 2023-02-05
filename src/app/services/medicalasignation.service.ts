@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { CreateMedicalAsignationModel, MedicalappointmentAsignationModel, UpdateMedicalAsignationModel } from '../entities/medicallist.model';
+import { MedicalsectionModel } from '../entities/medicalselection.model';
 import { ProductHttpService } from './product-http.service';
 
 @Injectable({
@@ -25,4 +26,10 @@ export class MedicalasignationService {
       return this.httpClient.delete<any>(url).
       pipe(map((response:{rta:boolean})=>{return response.rta;}));
     }
+
+  getOne(id:UpdateMedicalAsignationModel['id_asignacion_medica']):Observable<UpdateMedicalAsignationModel[]> {
+      const url = `/api/medical-assignmentsby/${id}`;
+      return this.httpClient.get<UpdateMedicalAsignationModel[]>(url);
+    }
+  
 }

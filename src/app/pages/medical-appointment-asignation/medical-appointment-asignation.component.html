@@ -1,4 +1,4 @@
-<div class="register" *ngIf="Updating">
+<!--<div class="register" *ngIf="Updating">
     <div class="register-triangle"></div>
     
     <h2 class="register-header">Registro de Citas Medicas</h2>
@@ -13,11 +13,85 @@
 <div class="register" *ngIf="!Updating">
     <div class="register-triangle"></div>
     
-    <h2 class="register-header">Asignacion de Citas Medicas</h2>
+    <h2 class="register-header">Registro de Citas Medicas</h2>
   
     <form class="register-container">
       <p><ng-select bindLabel="id_cita_medica" bindValue="id_cita_medica" name="id_cita_medica" [(ngModel)]="Create.id_cita_medica" [items]="MedicalCita"></ng-select></p>
       <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio" [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
       <input type="submit" value="Submit" (click)="registerMedical(Create)">
     </form>
+</div> -->
+----------------------------------------------------------------------
+<table class="table table-primary">
+  <thead>
+    <tr>
+      <th scope="col">Nombre del Paciente</th>
+      <th scope="col">Nombre del Doctor</th>
+      <th scope="col">Fecha Asignada</th>
+      <th scope="col">Hora de Inicio</th>
+      <th scope="col">Hora de finalizacion</th>
+      <th scope="col">Asignacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="" *ngFor="let medical of MedicalCita">
+      <td>{{medical.id_paciente}}</td>
+      <td>{{medical.id_doctor}}</td>
+      <td>{{medical.fecha_asignada}}</td>
+      <td>{{medical.hora_inicio}}</td>
+      <td>{{medical.hora_fin}}
+      </td>
+      <td><!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          (click)="cleanmodel(medical.id_cita_medica)">
+          Asignacion
+        </button>
+      </td>
+      <td><!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal2" (click)="GetByMedical(medical.id_cita_medica)" (blur)="Editar(medical.id_cita_medica)" >
+         Editar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Asignacion</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
+            [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="registerMedical(Create)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
+            [(ngModel)]="Update.id_consultorio" [items]="Consultorio"></ng-select></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="updateMedical(Update)">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
