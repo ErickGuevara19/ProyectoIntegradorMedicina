@@ -15,22 +15,27 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
   ngOnInit(): void {
     this.AsignationMedical()
     this.AsignationCosultorio()
-    this.Model()
     
-   /*this.AsignationCosultorio()*/
-    if (history.state.id_asignacion_medica) {
-      if (typeof history.state === typeof this.Create ) {
-        delete history.state.navigationId 
-        this.Update = history.state   
-        this.Updating = true
-      }
-    }
   }
   constructor(private medicalAsignationService:MedicalasignationService, private medicalselectionService:MedicalselectionService, private consultorioService:ConsultorioService){}
   MedicalCita: MedicalsectionModel[]=[]
   Consultorio : ConsultorioModel[]=[]
   Updatelist: UpdateMedicalAsignationModel[]=[]
   Updating: boolean= false
+  Create:CreateMedicalAsignationModel = {    
+    id_cita_medica: 0,
+    id_consultorio:0,
+  }
+
+  Update:UpdateMedicalAsignationModel = {   
+    id_asignacion_medica:0 ,
+    id_cita_medica: 0,
+    id_consultorio:0,
+  }
+  Objeto:any = {	id_consultorio: 1,
+    nombre_consultorio:'Laboratirio1',
+    referencia:'Lab1',
+    nombre_doctor:'Hernesto'}
 
   registerMedical(medicalAsignation: CreateMedicalAsignationModel) {
     console.log(medicalAsignation)
@@ -52,17 +57,6 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
       });
   }
 
-  Create:CreateMedicalAsignationModel = {    
-    id_cita_medica: 0,
-    id_consultorio:0,
-  }
-
-  Update:UpdateMedicalAsignationModel = {   
-    id_asignacion_medica:0 ,
-    id_cita_medica: 0,
-    id_consultorio:0,
-  }
-
   AsignationMedical() { 
     this.medicalselectionService.getAll().subscribe((res) => {
       this.MedicalCita= res
@@ -77,37 +71,27 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
     });
   }
 
-  Objeto:any = {	id_consultorio: 1,
-    nombre_consultorio:'Laboratirio1',
-    referencia:'Lab1',
-    nombre_doctor:'Hernesto'}
+  
 
-    Model(){
-      const myModal = document.getElementById('myModel') as HTMLElement
-      const myInput = document.getElementById('myInput') as HTMLInputElement
-      
-      myModal.addEventListener('shown.bs.modal', () => {
-        myInput.focus()
-      })
-      
-    }
     
     cleanmodel(id:number){
-      this.Create.id_consultorio =1,
+      this.Create.id_consultorio = 1,
       this.Create.id_cita_medica=id
     }
 
     GetByMedical(id:number) { 
-      console.log(id)
       this.medicalAsignationService.getOne(id).subscribe((res) => {
         this.Updatelist = res
+        this.Editar(id)
+        console.log(this.Updatelist)
       });
+      
     }
 
     Editar(id:number){      
       this.Update.id_cita_medica= id  
       this.Update.id_asignacion_medica= this.Updatelist[0].id_asignacion_medica
       this.Update.id_consultorio= this.Updatelist[0].id_consultorio
-
+      console.log(this.Update)
     }
 }
