@@ -12,7 +12,6 @@ import { AdminComponent } from './admin/admin.component';
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { PipeloginPipe } from './pipes/pipelogin.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { PipeloginPipe } from './pipes/pipelogin.pipe';
     AdminComponent,
     NoFoundpagesComponent,
     MedicalRecordComponent,
-    PipeloginPipe,
   ],
   imports: [
     BrowserModule,
