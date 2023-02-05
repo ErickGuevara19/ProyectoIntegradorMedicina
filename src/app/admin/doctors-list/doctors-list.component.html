@@ -34,9 +34,9 @@
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr *ngFor="let doctor of doctorList" class="table-primary">
+              <tr *ngFor="let doctor of doctorList | doctorList: filterName" class="table-primary">
                 <td scope="row">
-                  {{ doctor.nombre_d }} + {{ doctor.apellidos_d }}
+                  {{ doctor.nombre_d }}  {{ doctor.apellidos_d }}
                 </td>
                 <td>{{ doctor.email }}</td>
                 <td>{{ doctor.dirreccion_d }}</td>
