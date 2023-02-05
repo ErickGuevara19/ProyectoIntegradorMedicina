@@ -6,13 +6,13 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 import { RouterModule } from '@angular/router';
-import { DoctorListPipe } from '../pipes/doctor-list.pipe';
+import { DoctorEmailListPipe, DoctorEspecialityistPipe, DoctorListPipe } from '../pipes/doctor-list.pipe';
 
 
 
 
 @NgModule({
-  declarations: [DoctorListPipe,DoctorsRegisterComponent,MedicalAppointmentRegistrationComponent, DoctorsListComponent],
+  declarations: [DoctorEspecialityistPipe,DoctorListPipe,DoctorsRegisterComponent,MedicalAppointmentRegistrationComponent, DoctorsListComponent,DoctorEmailListPipe],
   imports: [
     CommonModule,
     NgSelectModule,
