@@ -7,7 +7,7 @@ import { ConsultorioModel } from '../entities/consultorio.model';
   providedIn: 'root'
 })
 export class ConsultorioService {
-  readonly API_URL ='/api/medical-assignments';
+  readonly API_URL ='/api/consulting-rooms';
   constructor(private httpClient: HttpClient) { }
 
   getAll():Observable<ConsultorioModel[]> {

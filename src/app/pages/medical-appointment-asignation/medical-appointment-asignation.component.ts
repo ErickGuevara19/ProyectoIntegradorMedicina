@@ -66,7 +66,6 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
   AsignationMedical() { 
     this.medicalselectionService.getAll().subscribe((res) => {
       this.MedicalCita= res
-      console.table(this.MedicalCita)
     });
   }
 
@@ -74,6 +73,7 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
     this.consultorioService.getAll().subscribe((res) => {
       this.Consultorio= res
       console.table(this.Consultorio)
+      console.log('Consultorio')
     });
   }
 
@@ -101,13 +101,11 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
       console.log(id)
       this.medicalAsignationService.getOne(id).subscribe((res) => {
         this.Updatelist = res
-        console.table(this.Updatelist)
       });
     }
 
     Editar(id:number){      
       this.Update.id_cita_medica= id  
-      console.log(this.Updatelist[0])
       this.Update.id_asignacion_medica= this.Updatelist[0].id_asignacion_medica
       this.Update.id_consultorio= this.Updatelist[0].id_consultorio
 

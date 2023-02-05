@@ -21,7 +21,8 @@
       <input type="submit" value="Submit" (click)="registerMedical(Create)">
     </form>
 </div> -->
-----------------------------------------------------------------------
+---------------------------------------------------------------------
+
 <table class="table table-primary">
   <thead>
     <tr>
@@ -41,16 +42,19 @@
       <td>{{medical.hora_inicio}}</td>
       <td>{{medical.hora_fin}}
       </td>
-      <td><!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-          (click)="cleanmodel(medical.id_cita_medica)">
-          Asignacion
-        </button>
-      </td>
-      <td><!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal2" (click)="GetByMedical(medical.id_cita_medica)" (blur)="Editar(medical.id_cita_medica)" >
-         Editar
-        </button>
+          <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+              aria-expanded="false" aria-controls="collapseExample" (click)="cleanmodel(medical.id_cita_medica)">
+              Button with data-bs-target
+            </button>
+          </p>
+      <td>
+        <p>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2"
+            aria-expanded="false" aria-controls="collapseExample"(click)="GetByMedical(medical.id_cita_medica)" (blur)="Editar(medical.id_cita_medica)">
+            Editar
+          </button>
+        </p><!-- Button trigger modal -->
       </td>
     </tr>
   </tbody>
@@ -70,7 +74,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="registerMedical(Create)">Save changes</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerMedical(Create)">Save
+          changes</button>
       </div>
     </div>
   </div>
@@ -90,8 +95,47 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="updateMedical(Update)">Save changes</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateMedical(Update)">Save
+          changes</button>
       </div>
     </div>
   </div>
 </div>
+
+<div class="mb-5">
+  <div class="row mb-5 justify-content-center">
+    <div class="col-lg-6">
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <ng-select dropdownPosition="bottom"  bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
+            [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select>
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerMedical(Create)">Save
+            changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="mb-5">
+    <div class="row mb-5 justify-content-center">
+      <div class="col-lg-6">
+        <div class="collapse" id="collapseExample2">
+          <div class="card card-body">
+            Update
+            <ng-select dropdownPosition="bottom"  bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
+              [(ngModel)]="Update.id_consultorio" [items]="Consultorio"></ng-select>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerMedical(Create)">Save
+              changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
