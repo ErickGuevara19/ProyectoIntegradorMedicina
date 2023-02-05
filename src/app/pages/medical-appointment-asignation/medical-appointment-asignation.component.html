@@ -21,7 +21,7 @@
       <input type="submit" value="Submit" (click)="registerMedical(Create)">
     </form>
 </div> -->
-----------------------------------------------------------------------
+<!---------------------------------------------------------------------->
 <table class="table table-primary">
   <thead>
     <tr>
@@ -64,6 +64,7 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Asignacion</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      
       <div class="modal-body">
         <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
             [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>

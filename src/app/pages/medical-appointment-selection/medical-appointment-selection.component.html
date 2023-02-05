@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Registro de Citas Medicas</title>
-  <link rel="stylesheet" href="medical-appointment-selection.component.css">
-</head>
 <body>
   <div class="signupFrm">
     <form action="" class="form">
@@ -25,22 +16,17 @@
       </div>
 
       <div class="inputContainer">
-        <input class="input" type="date" name="date" [(ngModel)]="MedicalAppoinment.fecha_asignada" placeholder="Fecha Asignada">
+        <input class="input" type="date" name="date" [(ngModel)]="MedicalAppoinment.fecha_asignada"
+          placeholder="Fecha Asignada">
       </div>
 
       <div class="inputContainer">
-        <input class="input" type="time" name="date_init" [(ngModel)]="MedicalAppoinment.hora_inicio" placeholder="Hora de Inicio">
+        <input class="input" type="time" name="date_init" [(ngModel)]="MedicalAppoinment.hora_inicio"
+          placeholder="Hora de Inicio">
       </div>
 
       <div class="inputContainer">
-        <input class="input" type="time" name="date_end" [(ngModel)]="MedicalAppoinment.hora_fin" placeholder="Hora finalizada">
+        <input class="input" type="time" name="date_end" [(ngModel)]="MedicalAppoinment.hora_fin"
+          placeholder="Hora finalizada">
       </div>
-
       <input class="submitBtn" type="submit" value="Submit" (click)="registermedical(MedicalAppoinment)">
-
-
-    </form>
-  </div>
-</body>
-</html>
-
