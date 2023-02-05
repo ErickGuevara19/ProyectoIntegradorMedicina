@@ -51,9 +51,7 @@ medicales: any;
         email:'lolo',
         dirreccion_d:'lolo',
         password_d:'lolo',
-        especialidades: {    
-          id_especialidades: 8,
-          descripcion_especialidad: 'lolo'}},
+        especialidades: 'a'},
       fecha_asignada: new Date(),
       hora_inicio: '12:00',
       hora_fin:'loli',},
@@ -67,9 +65,7 @@ medicales: any;
         email:'jose@',
         dirreccion_d:'lola',
         password_d:'lolaaa',
-        especialidades: {    id_especialidades
-          :3,
-          descripcion_especialidad: 'joe'}}},
+        especialidades: 'a' }},
 
 }
 Prueba2(){

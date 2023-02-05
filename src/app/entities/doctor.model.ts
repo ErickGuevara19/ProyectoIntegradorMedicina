@@ -7,7 +7,7 @@ export interface DoctorModel{
   email:string,
   dirreccion_d:string,
   password_d:string,
-  especialidades: EspecialidadesModel
+  especialidades: string
 }
 
 export interface CreateDoctorDto extends Omit<DoctorModel, 'id_doctor' | 'especialidades'>{
