@@ -12,6 +12,7 @@ import { AdminComponent } from './admin/admin.component';
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     AuthmoduleModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
     
   ],
   providers: [],
