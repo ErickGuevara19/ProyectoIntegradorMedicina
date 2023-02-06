@@ -1,6 +1,7 @@
 import { Time} from "@angular/common";
 import { DoctorModel } from "./doctor.model";
 import { EspecialidadesModel } from "./especialities.model";
+import { HorarioModel } from "./horario.model";
 import { PatientModel } from "./patients.model";
 
 export interface MedicalsectionModel{
@@ -15,6 +16,7 @@ export interface MedicalsectionModel{
 
 export interface CreateMedicalSection extends Omit<MedicalsectionModel, 'id_paciente' | 'id_doctor' | 'id_citamedica'>{
     id_paciente:number;
-    id_doctor: number
+    id_doctor: number;
+    id_horario: HorarioModel,
     }
   
