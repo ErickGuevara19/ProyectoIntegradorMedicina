@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { UpdateDoctorDto } from '../entities/doctor.model';
+import { HorarioModel } from '../entities/horario.model';
 import { CreateMedicalSection, MedicalsectionModel } from '../entities/medicalselection.model';
 
 @Injectable({
@@ -32,5 +33,9 @@ export class MedicalselectionService {
     const url = `${this.API_URL}/${id}`
     return this.httpClient.delete<any>(url).
     pipe(map((response:{rta:boolean})=>{return response.rta;}));
+  }
+  getHorario(): Observable<HorarioModel[]> {
+    const API_URL ='/api/horario';
+    return this.httpClient.get<HorarioModel[]>(API_URL); 
   }
 }
