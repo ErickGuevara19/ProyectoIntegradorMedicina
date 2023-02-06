@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DoctorsRegisterComponent } from './doctors-register/doctors-register.component';
 import { MedicalAppointmentRegistrationComponent } from './medical-appointment-registration/medical-appointment-registration.component';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 import { RouterModule } from '@angular/router';
 import { DoctorEmailListPipe, DoctorEspecialityistPipe, DoctorListPipe } from '../pipes/doctor-list.pipe';
@@ -17,7 +17,8 @@ import { DoctorEmailListPipe, DoctorEspecialityistPipe, DoctorListPipe } from '.
     CommonModule,
     NgSelectModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     DoctorsRegisterComponent,MedicalAppointmentRegistrationComponent
