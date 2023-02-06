@@ -10,6 +10,7 @@ import { MedicalAppointmentListComponent } from './medical-appointment-list/medi
 import { MedicalAppointmentSelectionComponent } from './medical-appointment-selection/medical-appointment-selection.component';
 import { PatientsTokenComponent } from './patients-token/patients-token.component';
 import { MedicalAppointmentAsignationComponent } from './medical-appointment-asignation/medical-appointment-asignation.component';
+import { PacienteGuard } from '../guards/paciente.guard';
 
 
 const routes: Routes = [
@@ -18,7 +19,7 @@ const routes: Routes = [
     children: [
       
       { path: 'doctors', component: DashboardDoctorsComponent},
-      { path: 'patient', component: DashboardPatientsComponent},
+      { path: 'patient', component: DashboardPatientsComponent,canActivate: [PacienteGuard]},
       { path: 'doctors-token', component: DoctorsTokenComponent },
       { path: 'medical-appoinment-list', component: MedicalAppointmentListComponent },
       { path: 'medical-appoinment-selection', component: MedicalAppointmentSelectionComponent  },
