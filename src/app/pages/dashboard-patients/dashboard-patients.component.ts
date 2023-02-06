@@ -9,6 +9,7 @@ import { PatientService } from 'src/app/services/patient.service';
   styleUrls: ['./dashboard-patients.component.css']
 })
 export class DashboardPatientsComponent implements OnInit {
+  usuario: Object = {}
 
   pacientes: PatientModel[] = [];
   private cookieService = inject(CookieService);
@@ -17,10 +18,11 @@ export class DashboardPatientsComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarPacientes();
-    const usuario =  JSON.parse(this.cookieService.get('user'))
-    console.log(usuario)
+    this.usuario =  JSON.parse(this.cookieService.get('user'))
+    console.log(this.usuario)
     
   }
+
 
   listarPacientes(){
     this.patientService.getAllPacientes().subscribe((res) =>{
