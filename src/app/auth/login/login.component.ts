@@ -29,6 +29,7 @@ export class LoginComponent {
           id_paciente: usuario.id_paciente,
           nombre_paciente: usuario.nombre_paciente,
           apellido_paciente: usuario.apellido_paciente,
+          direccion_paciente : usuario.direccion_paciente,
           telefono_paciente: usuario.telefono_paciente,
           email_paciente: usuario.email_paciente,
           password_paciente: usuario.password_paciente,
@@ -37,6 +38,7 @@ export class LoginComponent {
           genero_paciente: usuario.genero_paciente,
           id_alergias: usuario.id_alergias,
           id_discapacidades: usuario.id_discapacidades,
+          
         });
         this.cookieService.set('user', responseJson);
         this.router.navigate(['dashboard/patient']);

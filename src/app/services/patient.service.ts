@@ -19,7 +19,12 @@ export class PatientService {
     return this.httpClient.get<PatientModel[]>(url);
   }
 
-  createPatient(paciente:PatientModel): Observable<CreatePacientesDto>{
+  getPacientesById(id: number): Observable<PatientModel[]>{
+    const url = `${this.API_URL}/${id}`;
+    return this.httpClient.get<PatientModel[]>(url);
+  }
+
+  createPatient(paciente:CreatePacientesDto): Observable<CreatePacientesDto>{
     const url = `${this.API_URL}`;
     return this.httpClient.post<CreatePacientesDto>(url,paciente);
 
