@@ -117,8 +117,7 @@ body {
 .default {
   float: inline-start;
   border-radius: black 5px solid;
-  position:relative;
+  position: relative;
   top: -20px;
   margin-left: 10%;
 }
-
