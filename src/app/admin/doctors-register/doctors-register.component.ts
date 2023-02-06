@@ -3,6 +3,9 @@ import { CreateDoctorDto, DoctorModel,UpdateDoctorDto } from 'src/app/entities/d
 import { EspecialidadesModel } from 'src/app/entities/especialities.model';
 import { DoctorsService } from 'src/app/services/doctors.service';
 import { SpecialitiesService } from 'src/app/services/specialities.service';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { debounceTime } from 'rxjs';
+
 
 @Component({
   selector: 'app-doctors-register',
@@ -10,7 +13,34 @@ import { SpecialitiesService } from 'src/app/services/specialities.service';
   styleUrls: ['./doctors-register.component.css'],
 })
 export class DoctorsRegisterComponent implements OnInit {
-  constructor(private doctorsService:DoctorsService,private specialitiesService:SpecialitiesService){}
+  nombreCtrl= new FormControl('',[
+    Validators.required, 
+    Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/),
+  ]);
+  apellidoCtrl= new FormControl('',[
+    Validators.required,
+    Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/)
+  ]);
+  emailCtrl= new FormControl('',[
+    Validators.required,
+    Validators.email
+  ]);
+  direccionCtrl= new FormControl('',[
+    Validators.required,
+    Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\d\s\-]+$/)
+  ]);
+  passwordCtrl= new FormControl('',[
+    Validators.required,
+    Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-])[A-Za-z\d@$!%*?&-]{8,}$/)
+  ]);
+  form:any;
+  constructor(private doctorsService:DoctorsService,private specialitiesService:SpecialitiesService, private formBuilder:FormBuilder){
+    this.nombreCtrl.valueChanges
+    .pipe(debounceTime(350))
+    .subscribe(value => {
+      console.log(value);
+    });
+  }
   specialities: any[] = [];
   doctors: DoctorModel[] = [];
   updating: boolean = false;
@@ -24,6 +54,12 @@ export class DoctorsRegisterComponent implements OnInit {
       }
     }
   }
+
+  /*private buildForm(){
+    this.form = this.formBuilder.group ({
+      txtNpmbre:['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+    });
+  }*/
   doctorModel: UpdateDoctorDto = {
     id_doctor: 0,
     nombre_d: '',
@@ -73,4 +109,6 @@ export class DoctorsRegisterComponent implements OnInit {
         console.log(response);
       });
   }
+
+  
 }
