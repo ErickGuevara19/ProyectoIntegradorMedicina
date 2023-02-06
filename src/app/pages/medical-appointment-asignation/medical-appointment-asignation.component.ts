@@ -60,14 +60,13 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
   AsignationMedical() { 
     this.medicalselectionService.getAll().subscribe((res) => {
       this.MedicalCita= res
+      console.table(this.MedicalCita)
     });
   }
 
   AsignationCosultorio() { 
     this.consultorioService.getAll().subscribe((res) => {
       this.Consultorio= res
-      console.table(this.Consultorio)
-      console.log('Consultorio')
     });
   }
 

@@ -27,13 +27,11 @@ export class MedicalAppointmentSelectionComponent {
   nombredoctor: string = ''
 
   MedicalAppoinment:CreateMedicalSection = {    
-      id_cita_medica:0,
       id_paciente: 0,
       id_doctor: 0,
       fecha_asignada: new Date(),
-      hora_inicio: '',
-      hora_fin:'',
-      id_horario:0}
+      id_horario:0
+    }
  
       print (){console.table(this.MedicalAppoinment)}
 
@@ -71,8 +69,6 @@ export class MedicalAppointmentSelectionComponent {
       }
 
       registermedical(medical: CreateMedicalSection) {
-        medical.hora_inicio= medical.hora_inicio + ':00'
-        medical.hora_fin= medical.hora_fin + ':00'
         console.log(medical)
         const response = this.medicalselectionService
           .store(medical)

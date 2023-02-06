@@ -26,27 +26,16 @@ medicales: any;
 
   Prueba:MedicalappointmentAsignationModel = {    
     id_asignacion_medica: 1,
-    id_cita_medica: {
-      id_cita_medica: 1,
-      id_paciente: '',
-      id_doctor:'',
-      fecha_asignada: new Date(),
-      hora_inicio: '12:00',
-      hora_fin:'loli', 
-     id_horario:'' },
-    id_consultorio: {	
-      id_consultorio: 1,
-      nombre_consultorio: 'lola',
-      referencia: 'lola',
-      nombre_doctor:{  id_doctor:1,
-      nombre_d:'lolita',
-        apellidos_d:'johan',
-        email:'jose@',
-        dirreccion_d:'lola',
-        password_d:'lolaaa',
-        especialidades: 'a' }},
-
-}
+    id_cita_medica: 0,
+    id_consultorio: 0,
+    fecha_asignada: '',
+    horario: '',
+    id_consultoriol: '',
+    nombre_doctor: '',
+    apellido_doctor: '',
+    nombre_paciente: '',
+    apellido_paciente: ''  
+  }
 Prueba2(){
   this.Medicalappointment.push(this.Prueba)
   console.log(this.Medicalappointment)
