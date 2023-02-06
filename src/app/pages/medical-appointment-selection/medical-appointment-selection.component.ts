@@ -6,7 +6,6 @@ import { PatientModel } from 'src/app/entities/patients.model';
 import { DoctorsService } from 'src/app/services/doctors.service';
 import { MedicalselectionService } from 'src/app/services/medicalselection.service';
 import { PatientService } from 'src/app/services/patient.service';
-import { SpecialitiesService } from 'src/app/services/specialities.service';
 
 
 @Component({
@@ -34,10 +33,7 @@ export class MedicalAppointmentSelectionComponent {
       fecha_asignada: new Date(),
       hora_inicio: '',
       hora_fin:'',
-      id_horario:{
-        id_horario:0,
-        descripcion:''
-      }}
+      id_horario:0}
  
       print (){console.table(this.MedicalAppoinment)}
 

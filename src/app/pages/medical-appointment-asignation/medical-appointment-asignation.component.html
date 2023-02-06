@@ -21,20 +21,15 @@
       <input type="submit" value="Submit" (click)="registerMedical(Create)">
     </form>
 </div> -->
-<<<<<<< HEAD
-<!---------------------------------------------------------------------->
-=======
 ---------------------------------------------------------------------
 
->>>>>>> abf2929e9ab46f6f683ebfb6a5dc5a3f213a6a91
 <table class="table table-primary">
   <thead>
     <tr>
       <th scope="col">Nombre del Paciente</th>
       <th scope="col">Nombre del Doctor</th>
       <th scope="col">Fecha Asignada</th>
-      <th scope="col">Hora de Inicio</th>
-      <th scope="col">Hora de finalizacion</th>
+      <th scope="col">Horario</th>
       <th scope="col">Asignacion</th>
     </tr>
   </thead>
@@ -44,8 +39,7 @@
       <td>{{medical.id_doctor}}</td>
       <td>{{medical.fecha_asignada}}</td>
       <td>{{medical.hora_inicio}}</td>
-      <td>{{medical.hora_fin}}
-      </td>
+
           <p>
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
               aria-expanded="false" aria-controls="collapseExample" (click)="cleanmodel(medical.id_cita_medica)">

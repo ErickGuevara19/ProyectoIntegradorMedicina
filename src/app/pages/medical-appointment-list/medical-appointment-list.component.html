@@ -26,8 +26,8 @@
     </thead>
     <tbody>
       <tr class="" *ngFor ="let medical of Medicalappointment" >
-        <td>{{medical.id_cita_medica.id_paciente.nombre_paciente}}</td>
-            <td>{{medical.id_cita_medica.id_doctor.nombre_d}}</td>
+        <td>{{medical.id_cita_medica.id_paciente}}</td>
+            <td>{{medical.id_cita_medica.id_doctor}}</td>
             <td>{{medical.id_cita_medica.fecha_asignada}}</td>
             <td>{{medical.id_cita_medica.hora_inicio}}</td>
             <td>{{medical.id_cita_medica.hora_fin}}</td>
