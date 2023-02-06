@@ -18,7 +18,7 @@ export class LoginComponent {
   constructor(private loginservice: loginService, private router: Router) {}
 
   ngOnInit(): void {
-    
+    console.log(this.cookieService.getAll())
   }
 
   login(object: Object) {

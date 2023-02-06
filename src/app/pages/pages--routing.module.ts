@@ -11,6 +11,7 @@ import { MedicalAppointmentSelectionComponent } from './medical-appointment-sele
 import { PatientsTokenComponent } from './patients-token/patients-token.component';
 import { MedicalAppointmentAsignationComponent } from './medical-appointment-asignation/medical-appointment-asignation.component';
 import { PacienteGuard } from '../guards/paciente.guard';
+import { DoctorGuard } from '../guards/doctor.guard';
 
 
 const routes: Routes = [
@@ -21,11 +22,11 @@ const routes: Routes = [
       { path: 'doctors', component: DashboardDoctorsComponent},
       { path: 'patient', component: DashboardPatientsComponent,canActivate: [PacienteGuard]},
       { path: 'doctors-token', component: DoctorsTokenComponent },
-      { path: 'medical-appoinment-list', component: MedicalAppointmentListComponent },
+      { path: 'medical-appoinment-list', component: MedicalAppointmentListComponent,canActivate: [DoctorGuard] },
       { path: 'medical-appoinment-selection', component: MedicalAppointmentSelectionComponent  },
       { path: 'patients-token', component: PatientsTokenComponent },
       { path: 'medical-appoinment-asignation', component: MedicalAppointmentAsignationComponent },
-      {path:'',redirectTo:'/dashboard',pathMatch:'full'},
+      {path:'',redirectTo:'/dashboard/patient',pathMatch:'full'},
     ]
   }
 ]

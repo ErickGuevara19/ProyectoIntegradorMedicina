@@ -10,7 +10,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { MedicalAppointmentAsignationComponent } from './medical-appointment-asignation/medical-appointment-asignation.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RouterModule } from '@angular/router';
-
+import { CookieService } from 'ngx-cookie-service/public-api';
 
 
 
@@ -42,6 +42,6 @@ import { RouterModule } from '@angular/router';
     PatientsTokenComponent,
     MedicalAppointmentAsignationComponent,
    
-  ],
+  ]
 })
 export class PagesmoduleModule { }
