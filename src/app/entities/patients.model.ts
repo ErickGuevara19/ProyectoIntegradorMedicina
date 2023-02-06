@@ -13,14 +13,20 @@ export interface PatientModel{
     fecha_nacimiento_paciente: Date,
     genero_paciente: Boolean,
     alergias: AlergiasModel,
+    alergia_nombre:string,
     discapacidades: DiscapacidadesModel,
+    discapacidad_nombre: string,
 }
-export interface CreatePacientesDto extends Omit<PatientModel, 'id'>{
-    }
+export interface CreatePacientesDto extends Omit<PatientModel, 'id_paciente'|'alergia_nombre'|'discapacidad_nombre'|'alergias'|'discapacidades'>{
+  alergia_nombre :string;
+  discapacidad_nombre:string
+  }
   
-  export interface UpdatePacientesDto extends Omit<PatientModel,'alergias'|'discapacidades'>{
+  export interface UpdatePacientesDto extends Omit<PatientModel,'alergias'|'discapacidades'|'alergia_nombre'|'discapacidad_nombre'>{
     id_discapacidades:number;
     id_alergias:number;
+    alergia_nombre :string;
+    discapacidad_nombre:string
   }
   
   

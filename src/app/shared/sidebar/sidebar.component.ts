@@ -1,4 +1,4 @@
-import { Component,inject } from '@angular/core';
+import { Component,inject, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -6,7 +6,44 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
+
+  ngOnInit(): void {
+    this.comprobation()
+  }
+
+  isAdmin : boolean = false;
+  isDoctor : boolean = false;
+  isPacient : boolean = false;
+  
+  comprobation(){
+    const usuario =  JSON.parse(this.cookieService.get('user'));
+    console.log(usuario.id_paciente)
+    if (usuario.id_paciente) {
+
+      this.isPacient = true;
+      
+    } else { if (usuario.id_doctor) {
+
+      this.isDoctor = true;
+      console.log(this.isDoctor)
+      
+    } else {if (usuario.id_admin) {
+
+      this.isAdmin = true;
+      
+    } else {
+      
+    }
+      
+    }
+      
+    }
+
+
+  }
+
+
   private cookieService = inject(CookieService);
   nameDoctor:string = 'Jeims'
 

@@ -29,7 +29,9 @@ export class RegisterPatientsComponent implements OnInit {
     fecha_nacimiento_paciente : new Date,
     genero_paciente: true,
     id_alergias: 0,
+    alergia_nombre:'',
     id_discapacidades:0,
+    discapacidad_nombre: '',
     
    }
    updating : boolean = false
@@ -58,7 +60,9 @@ export class RegisterPatientsComponent implements OnInit {
     fecha_nacimiento_paciente : new Date,
     genero_paciente: true,
     alergias: {id_alergia: 0 , nombre_alergia:'',descripcion_alergia:''},
+    alergia_nombre:'',
     discapacidades: {id_discapacidades : 0, nombre_discapacidad : '',descripcion_discapacidad :''},
+    discapacidad_nombre: '',
   };
 
   alergias : AlergiasModel[]=[]
