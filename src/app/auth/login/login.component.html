@@ -1,12 +1,11 @@
 <div class="login">
   <div class="login-triangle"></div>
-  
-  <h2 class="login-header">Log in</h2>
+  <h2 class="login-header">Sistema Médico</h2>
 
   <form class="login-container">
     <p><input type="email" placeholder="Email" name="email" id ="email"></p>
     <p><input type="password" placeholder="Contraseña" name ="password" id="password"></p>
-    <p><input type="submit" value="Log in"  [routerLink]="['/dashboard/patient']"></p>
+    <p><input type="submit" value="Iniciar Sesion"  [routerLink]="['/dashboard/patient']"></p>
     <a  [routerLink]="['/registerPatient']" >No tienes cuenta Registrate</a>
   </form>
 </div>
