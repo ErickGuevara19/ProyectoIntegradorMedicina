@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Medica</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Medica</title>
 </head>
+
 <body>
-  
+
 </body>
+
 </html>
 
 <table class="default">
@@ -21,19 +24,19 @@
         <th scope="col">FECHA ASIGNADA</th>
         <th scope="col">HORA DE INICIO</th>
         <th scope="col">HORA DE FINALIZACION</th>
-        <th scope="col">CONSULTORIO</th>
+        <th scope="col">HORARIOS</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="" *ngFor ="let medical of Medicalappointment" >
+      <tr class="" *ngFor="let medical of Medicalappointment">
         <td>{{medical.id_cita_medica.id_paciente.nombre_paciente}}</td>
-            <td>{{medical.id_cita_medica.id_doctor.nombre_d}}</td>
-            <td>{{medical.id_cita_medica.fecha_asignada}}</td>
-            <td>{{medical.id_cita_medica.hora_inicio}}</td>
-            <td>{{medical.id_cita_medica.hora_fin}}</td>
-            <td>{{medical.id_consultorio.nombre_consultorio}}</td>
+        <td>{{medical.id_cita_medica.id_doctor.nombre_d}}</td>
+        <td>{{medical.id_cita_medica.fecha_asignada}}</td>
+        <td>{{medical.id_cita_medica.hora_inicio}}</td>
+        <td>{{medical.id_cita_medica.hora_fin}}</td>
+        <td>{{medical.id_consultorio.nombre_consultorio}}</td>
       </tr>
-     
+
     </tbody>
   </table>
 </table>
@@ -61,4 +64,3 @@
           </tr>
         </tbody>
       </table>-->
-
