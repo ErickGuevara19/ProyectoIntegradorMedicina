@@ -31,7 +31,7 @@ export class DoctorsRegisterComponent implements OnInit {
   ]);
   passwordCtrl= new FormControl('',[
     Validators.required,
-    Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+    Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-])[A-Za-z\d@$!%*?&-]{8,}$/)
   ]);
   form:any;
   constructor(private doctorsService:DoctorsService,private specialitiesService:SpecialitiesService, private formBuilder:FormBuilder){
