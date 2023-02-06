@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,inject } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { PatientModel } from 'src/app/entities/patients.model';
 import { PatientService } from 'src/app/services/patient.service';
 
@@ -10,11 +11,15 @@ import { PatientService } from 'src/app/services/patient.service';
 export class DashboardPatientsComponent implements OnInit {
 
   pacientes: PatientModel[] = [];
-  
-  constructor(private patientService:PatientService){}
+  private cookieService = inject(CookieService);
+  constructor(private patientService:PatientService,
+    ){}
 
   ngOnInit(): void {
     this.listarPacientes();
+    const usuario =  JSON.parse(this.cookieService.get('user'))
+    console.log(usuario)
+    
   }
 
   listarPacientes(){

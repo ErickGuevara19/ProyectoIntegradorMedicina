@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 
 
 
+
 @NgModule({
   declarations: [
     DashboardDoctorsComponent,
@@ -24,13 +25,13 @@ import { RouterModule } from '@angular/router';
     MedicalAppointmentSelectionComponent,
     PatientsTokenComponent,
     MedicalAppointmentAsignationComponent,
+    
   ],
   imports: [
     CommonModule,
     FormsModule,
     NgSelectModule,
     RouterModule
-    
   ],
   exports: [
     DashboardDoctorsComponent,

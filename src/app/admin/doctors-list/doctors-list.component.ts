@@ -1,4 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { DoctorModel } from 'src/app/entities/doctor.model';
 import { DoctorsService } from 'src/app/services/doctors.service';
 @Component({
@@ -7,6 +8,7 @@ import { DoctorsService } from 'src/app/services/doctors.service';
   styleUrls: ['./doctors-list.component.css'],
 })
 export class DoctorsListComponent implements OnInit {
+  private cookieService = inject(CookieService);
   constructor(private doctorsService: DoctorsService) {}
   doctorList: DoctorModel[] = [];
   filterName: string = '';
@@ -15,6 +17,8 @@ export class DoctorsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarDoctores();
+    const usuario =  JSON.parse(this.cookieService.get('user'))
+    console.log(usuario)
   }
   nada(){
     
