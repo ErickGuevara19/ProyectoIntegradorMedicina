@@ -29,7 +29,7 @@
         <label for="inputHorario">Horario</label>
         <ng-select [items]="horario"bindLabel="descripcion" bindValue="id_horario" [(ngModel)]="MedicalAppoinment.id_horario" name="txtalergias" id="txtalergias"></ng-select>
        </div>
-      <input class="submitBtn" type="submit" value="Submit" (click)="registermedical(MedicalAppoinment)">
+      <input class="submitBtn" type="submit" value="Submit" (click)="registermedical(MedicalAppoinment)" >
 
     </form>
 
