@@ -4,7 +4,7 @@ import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterPatientsComponent } from './register-patients/register-patients.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 
@@ -19,7 +19,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CommonModule,
     RouterModule,
     FormsModule,
-    NgSelectModule
+    NgSelectModule,
+    ReactiveFormsModule 
   ],
   exports: [
     LoginComponent,

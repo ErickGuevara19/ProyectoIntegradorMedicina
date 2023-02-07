@@ -1,44 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <table class="table table-primary">
-        <thead>
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Dirreccion</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Email</th>
-            <th scope="col">Telefono Familiar</th>
-            <th scope="col">Fecha de nacimiento</th>
-            <th scope="col">Genero</th>
-            <th scope="col">Alergia</th>
-            <th scope="col">Discapacidad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="" *ngFor ="let paciente of usuario" >
-            <td>{{paciente.nombre_paciente}}</td>
-            <td>{{paciente.apellido_paciente}}</td>
-            <td>{{paciente.direccion_paciente}}</td>
-            <td>{{paciente.telefono_paciente}}</td>
-            <td>{{paciente.email_paciente}}</td>
-            <td>{{paciente.tlf_familiar_paciente}}</td>
-            <td>{{paciente.fecha_nacimiento_paciente}}</td>
-            <td>{{paciente.genero_paciente ? 'Masculino': 'Femenino'}}</td>
-            <td>{{paciente.alergia_nombre}}</td>
-            <td>{{paciente.discapacidad_nombre}}</td>
-            
-            <button [routerLink] ="['/registerPatient']" [state]="paciente">Actualizar</button>
-          </tr>
-        </tbody>
-        
-      </table>
-</body>
-</html>
+<header class="masthead text-center text-white">
+  <div class="masthead-content">
+      <div class="container px-5">
+          <h1 class="masthead-heading mb-0">One Page Wonder</h1>
+          <h2 class="masthead-subheading mb-0">Will Rock Your Socks Off</h2>
+          <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+      </div>
+  </div>
+  <div class="bg-circle-1 bg-circle"></div>
+  <div class="bg-circle-2 bg-circle"></div>
+  <div class="bg-circle-3 bg-circle"></div>
+  <div class="bg-circle-4 bg-circle"></div>
+</header>
+<section id="scroll">
+  <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+          <div class="col-lg-6 order-lg-2">
+              <div class="p-5"><img class="img-fluid rounded-circle" src="../../../assets/img/fondofinal.jpeg" alt="..." /></div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+              <div class="p-5">
+                  <h2 class="display-4">Bienvenidos a YaviSalud.....</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

@@ -5,6 +5,9 @@ import { AlergiasModel } from 'src/app/entities/alergias.model';
 import { DiscapacidadesModel } from 'src/app/entities/discapacidades.model';
 import { CreatePacientesDto, PatientModel, UpdatePacientesDto } from 'src/app/entities/patients.model';
 import { PatientService } from 'src/app/services/patient.service';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { debounceTime } from 'rxjs';
+
 
 @Component({
   selector: 'app-register-patients',
@@ -13,9 +16,64 @@ import { PatientService } from 'src/app/services/patient.service';
 })
 export class RegisterPatientsComponent implements OnInit {
 
-  constructor(private patientService:PatientService ) {
-    
 
+  nombreCtrl= new FormControl('',[
+    Validators.required, 
+    Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/),
+  ]);
+  apellidoCtrl= new FormControl('',[
+    Validators.required,
+    Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/)
+  ]);
+  telefonoCtrl= new FormControl('',[
+    Validators.required, 
+    Validators.pattern(/^[0-9]+$/),
+    Validators.maxLength(10),
+    Validators.minLength(10)
+  ])
+    
+  emailCtrl= new FormControl('',[
+    Validators.required,
+    Validators.email
+  ]);
+  /*direccionCtrl= new FormControl('',[
+    Validators.required,
+    Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\d\s\-]+$/)
+  ]);*/
+  passwordCtrl= new FormControl('',[
+    Validators.required,
+    Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-])[A-Za-z\d@$!%*?&-]{8,}$/),
+  ]);
+
+  confirmarpasswordCtrl =new FormControl('',[
+    Validators.required,
+    Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-])[A-Za-z\d@$!%*?&-]{8,}$/),
+    
+  ]);
+  
+  
+
+  
+
+
+  form:any;
+
+
+
+
+
+
+
+
+  constructor(private patientService:PatientService, private formBuilder:FormBuilder) {
+
+    this.nombreCtrl.valueChanges
+    .pipe(debounceTime(350))
+    .subscribe(value => {
+      console.log(value);
+    });
+  
+    
    }
    patientModel: UpdatePacientesDto={
     id_paciente :0,
@@ -48,8 +106,7 @@ export class RegisterPatientsComponent implements OnInit {
     }
   }
   
-  paciente: PatientModel= {
-    id_paciente :0,
+  paciente: CreatePacientesDto= {
     nombre_paciente:'',
     apellido_paciente :'',
     direccion_paciente :'',
@@ -59,17 +116,15 @@ export class RegisterPatientsComponent implements OnInit {
     tlf_familiar_paciente :'',
     fecha_nacimiento_paciente : new Date,
     genero_paciente: true,
-    alergias: {id_alergia: 0 , nombre_alergia:'',descripcion_alergia:''},
-    alergia_nombre:'',
-    discapacidades: {id_discapacidades : 0, nombre_discapacidad : '',descripcion_discapacidad :''},
-    discapacidad_nombre: '',
+    id_alergias: 0,
+    id_discapacidades: 0,
   };
 
   alergias : AlergiasModel[]=[]
   discapacidades : DiscapacidadesModel[]=[]
 
   registerPaciente(paciente: CreatePacientesDto) {
-    
+    console.log(paciente)
     const response = this.patientService
       .createPatient(paciente)
       .subscribe((response) => {
@@ -98,6 +153,6 @@ export class RegisterPatientsComponent implements OnInit {
       }
     )
   }
-  
+  confirmarPassword :string =""
  
 }

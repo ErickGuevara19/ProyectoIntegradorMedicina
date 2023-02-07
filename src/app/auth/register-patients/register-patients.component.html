@@ -18,19 +18,44 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nombre">Nombres</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Nombres" name ="nombres"[(ngModel)]="paciente.nombre_paciente">
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombres" name ="nombres"[(ngModel)]="paciente.nombre_paciente" [formControl]="nombreCtrl">
+                                <p *ngIf="nombreCtrl.errors && nombreCtrl.dirty"> <small class="text-danger" *ngIf="nombreCtrl.hasError('required')">Este campo es requerido</small>
+                                    <small class="text-danger" *ngIf="nombreCtrl.hasError('pattern')">¡El nombre solo acepta letras sin espacios!<br> Evite usar números o caracteres especiales ej: (*$%, etc)</small></p>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="apellidos">Apellidos</label>
-                                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" name="apellidos"[(ngModel)]= "paciente.apellido_paciente">
+                                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" name="apellidos"[(ngModel)]= "paciente.apellido_paciente" [formControl]="apellidoCtrl">
+                                <p *ngIf="apellidoCtrl.errors && apellidoCtrl.dirty"> <small class="text-danger" *ngIf="apellidoCtrl.hasError('required')">Este campo es requerido</small>
+                                    <small class="text-danger" *ngIf="apellidoCtrl.hasError('pattern')">¡El apellido solo acepta letras sin espacios!<br> Evite usar números o caracteres especiales ej: (*$%, etc)</small></p>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Correo Electronico" name="email"[(ngModel)]="paciente.email_paciente">
+                                <input type="email" class="form-control" id="email" placeholder="Correo Electronico" name="email"[(ngModel)]="paciente.email_paciente" [formControl]="emailCtrl">
+                                <p *ngIf="emailCtrl.errors && emailCtrl.dirty"> <small class="text-danger" *ngIf="emailCtrl.hasError('required')">Este campo es requerido</small>
+                                    <small class="text-danger" *ngIf="emailCtrl.hasError('email')">No es un email válido</small></p>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="contraseña">Contraseña</label>
-                                <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" name="contraseña"[(ngModel)] ="paciente.password_paciente">
+                            <div class="form-group col-md-3">
+                                <label for="comfirmarcontraseña">Contraseña</label>
+                                <input type="password" class="form-control" id="txtpassword" placeholder="Contraseña" name="contraseña" [(ngModel)] ="paciente.password_paciente" [formControl]= "passwordCtrl">
+                                <small id="txtContraseña" class=" text-success" *ngIf="!passwordCtrl.hasError('required')" >- Al menos 8 caracteres de longitud
+                                    <br>
+                                    - Al menos 1 letra mayúscula  <br>
+                                    - Al menos 1 letra minúscula  <br>
+                                    - Al menos 1 número  <br>
+                                    - Al menos 1 carácter especial  <br></small>
+                                  <p *ngIf="passwordCtrl.errors && passwordCtrl.dirty">
+                                    
+                                    <small class="text-danger" *ngIf="passwordCtrl.hasError('required')">Este campo es requerido</small>
+                                    <small id="txtpassword" class=" text-danger" *ngIf="passwordCtrl.hasError('pattern')">
+                                      La contraseña no cumple con las especificaciones requeridas <br>
+                                    </small>
+                    
+                                  </p>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="contraseña">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" id="txtconfirmarcontraseña" placeholder="Contraseña" name="confirmarpassword" [formControl]= "confirmarpasswordCtrl" [(ngModel)]="confirmarPassword">
+                                    <small class="text-{{confirmarPassword === paciente.password_paciente? 'success': 'danger'}}"  >{{confirmarPassword === paciente.password_paciente? "La contraseña coincide": "La contraseña no coincide"}}</small>
                             </div>
                             
                         </div>
@@ -55,11 +80,20 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="telefono">Teléfono</label>
-                                <input type="text" class="form-control" id="telefono" placeholder="Teléfono" name="telefono" [(ngModel)]="paciente.telefono_paciente">
+                                <input type="text" class="form-control" id="telefono" placeholder="Teléfono" name="telefono" [(ngModel)]="paciente.telefono_paciente" [formControl]="telefonoCtrl">
+                                <p *ngIf="telefonoCtrl.errors && telefonoCtrl.dirty"> <small class="text-danger" *ngIf="telefonoCtrl.hasError('required')">Este campo es requerido</small>
+                                    <small class="text-danger" *ngIf="telefonoCtrl.hasError('pattern')">¡El numero de telefono solo acepta numeros!<br> Evite usar letras o caracteres especiales ej: (*$%, etc)</small>
+                                    <small class="text-danger" *ngIf="telefonoCtrl.hasError('maxlength')">Debe tener como maximo 10 dijitos</small>
+                                    <small class="text-danger" *ngIf="telefonoCtrl.hasError('minlength')">Debe tener como minimo 10 dijitos</small>
+                                </p>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="telefono_familiar">Teléfono Familiar</label>
-                                <input type="text" class="form-control" id="telefono_familiar" placeholder="Teléfono Familiar" name =" telefono_familiar"[(ngModel)] ="paciente.tlf_familiar_paciente">
+                                <input type="text" class="form-control" id="telefono_familiar" placeholder="Teléfono Familiar" name =" telefono_familiar"[(ngModel)] ="paciente.tlf_familiar_paciente" [formControl]="telefonoCtrl">
+                                <p *ngIf="telefonoCtrl.errors && telefonoCtrl.dirty"> <small class="text-danger" *ngIf="telefonoCtrl.hasError('required')">Este campo es requerido</small>
+                                    <small class="text-danger" *ngIf="telefonoCtrl.hasError('pattern')">¡El numero de telefono solo acepta numeros!<br> Evite usar letras o caracteres especiales ej: (*$%, etc)</small></p>
+                                    <small class="text-danger" *ngIf="telefonoCtrl.hasError('maxlength')">Debe tener como maximo 10 dijitos</small>
+                                    <small class="text-danger" *ngIf="telefonoCtrl.hasError('minlength')">Debe tener como minimo 10 dijitos</small>
                             </div>
                         </div>
                         <div class="form-row">
@@ -68,7 +102,8 @@
                                     <ng-select
                                         [items]="alergias"
                                         bindLabel="nombre_alergia"
-                                        [(ngModel)]="paciente.alergias"
+                                        bindValue="id_alergia"
+                                        [(ngModel)]="paciente.id_alergias"
                                         name="txtalegias"
                                         id="txtalergias">
                                     </ng-select>
@@ -79,15 +114,17 @@
                                 <ng-select
                                   [items]="discapacidades"
                                   bindLabel="nombre_discapacidad"
-                                  [(ngModel)]="paciente.discapacidades"
+                                  bindValue="id_discapacidades"
+                                  [(ngModel)]="paciente.id_discapacidades"
                                   name="txtalergias"
                                   id="txtalergias">
                                 </ng-select>
                                </div>
                         </div>
+                       
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <input type="submit" value="Registrar" class="btn btn-primary"[routerLink]="['/login']" (click)="registerPaciente(paciente)">
+                                <input type="submit" value="Registrar" class="btn btn-primary" (click)="registerPaciente(paciente)" [disabled]="nombreCtrl.invalid">
                             </div>
                         </div>
                     </form>
@@ -98,11 +135,16 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nombre">Nombres</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Nombres" name ="nombres"[(ngModel)]="patientModel.nombre_paciente">
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombres" name ="txtNombre" [(ngModel)]="patientModel.nombre_paciente" [formControl] = "nombreCtrl">
+                                <p *ngIf="nombreCtrl.errors && nombreCtrl.dirty"> <small class="text-danger" *ngIf="nombreCtrl.hasError('required')">Este campo es requerido</small>
+                                    <small class="text-danger" *ngIf="nombreCtrl.hasError('pattern')">¡El nombre solo acepta letras sin espacios!<br> Evite usar números o caracteres especiales ej: (*$%, etc)</small>
+                                </p>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="apellidos">Apellidos</label>
-                                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" name="apellidos"[(ngModel)]= "patientModel.apellido_paciente">
+                                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" name="apellidos"[(ngModel)]= "patientModel.apellido_paciente" [formControl]="apellidoCtrl">
+                                <p *ngIf="apellidoCtrl.errors && apellidoCtrl.dirty"> <small class="text-danger" *ngIf="apellidoCtrl.hasError('required')">Este campo es requerido</small>
+                                    <small class="text-danger" *ngIf="apellidoCtrl.hasError('pattern')">¡El apellido solo acepta letras sin espacios!<br> Evite usar números o caracteres especiales ej: (*$%, etc)</small></p>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="email">Email</label>

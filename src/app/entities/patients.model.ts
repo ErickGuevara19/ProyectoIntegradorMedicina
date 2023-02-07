@@ -18,8 +18,8 @@ export interface PatientModel{
     discapacidad_nombre: string,
 }
 export interface CreatePacientesDto extends Omit<PatientModel, 'id_paciente'|'alergia_nombre'|'discapacidad_nombre'|'alergias'|'discapacidades'>{
-  alergia_nombre :string;
-  discapacidad_nombre:string
+  id_alergias : Number;
+  id_discapacidades:number
   }
   
   export interface UpdatePacientesDto extends Omit<PatientModel,'alergias'|'discapacidades'|'alergia_nombre'|'discapacidad_nombre'>{

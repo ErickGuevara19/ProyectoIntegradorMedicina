@@ -1,1 +1,44 @@
-<p>patients-token works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table table-primary">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Dirreccion</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefono Familiar</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Alergia</th>
+            <th scope="col">Discapacidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="" *ngFor ="let paciente of usuario">
+            <td>{{paciente.nombre_paciente}}</td>
+            <td>{{paciente.apellido_paciente}}</td>
+            <td>{{paciente.direccion_paciente}}</td>
+            <td>{{paciente.telefono_paciente}}</td>
+            <td>{{paciente.email_paciente}}</td>
+            <td>{{paciente.tlf_familiar_paciente}}</td>
+            <td>{{paciente.fecha_nacimiento_paciente}}</td>
+            <td>{{paciente.genero_paciente ? 'Masculino': 'Femenino'}}</td>
+            <td>{{paciente.alergia_nombre}}</td>
+            <td>{{paciente.discapacidad_nombre}}</td>
+            
+            <button [routerLink] ="['/registerPatient']" [state]="paciente">Actualizar</button>
+          </tr>
+        </tbody>
+        
+      </table>
+</body>
+</html>
