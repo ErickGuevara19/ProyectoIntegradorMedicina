@@ -20,19 +20,26 @@ export class MedicalAppointmentSelectionComponent {
     this.listarDoctores();
     this.listarPacientes();
     this.listarHorario();
+    this.listardoctor();
   }
   pacientes: PatientModel[]=[]
   doctors : DoctorModel[]=[]
   horario : HorarioModel[]=[]
+  doctor : DoctorModel[]=[]
   nombrepaciente: string = ''
   nombredoctor: string = ''
 
+
   MedicalAppoinment:CreateMedicalSection = {    
-      id_paciente: 0,
+      id_paciente:0,
       id_doctor: 0,
       fecha_asignada: new Date(),
-      id_horario:0
+      id_horario:0,
+      id_consultorio:0
+
     }
+
+
  
       print (){console.table(this.MedicalAppoinment)}
 
@@ -82,6 +89,14 @@ export class MedicalAppointmentSelectionComponent {
       listarHorario(){
         this.medicalselectionService.getHorario().subscribe((res) =>{
           this.horario = res
+            console.log(res)
+          }
+        )
+      }
+
+      listardoctor(){
+        this.doctorsService.getAll().subscribe((res) =>{
+          this.doctor = res
             console.log(res)
           }
         )

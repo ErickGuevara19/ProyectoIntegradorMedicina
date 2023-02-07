@@ -91,8 +91,10 @@
     </div>
     
     <div class="modal-body">
-      <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
-          [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
+      <div class="form-group col-md-6">
+        <label for="inputHorario">Horario</label>
+        <ng-select [items]="consultorio" bindLabel="nombre_consultorio" bindValue="id_consultorio" [(ngModel)]="Create.id_consultorio" name="txtalergias" id="txtalergias"></ng-select>
+       </div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapseExample">Close</button>
