@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate {
           this.router.navigate(['admin/doctor-list'])
           return false
         }else if(usuario.id_paciente) {
-          this.router.navigate(['dashboard/patients'])
+          this.router.navigate(['dashboard/patient'])
           return false
         }else {
           return false

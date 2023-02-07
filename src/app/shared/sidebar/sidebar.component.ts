@@ -1,4 +1,5 @@
 import { Component,inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -23,31 +24,30 @@ export class SidebarComponent implements OnInit {
 
       this.isPacient = true;
       
-    } else { if (usuario.id_doctor) {
+    } else  if (usuario.id_doctor) {
 
       this.isDoctor = true;
       console.log(this.isDoctor)
       
-    } else {if (usuario.id_admin) {
+    } else if (usuario.id_admin) {
 
       this.isAdmin = true;
       
-    } else {
-      
-    }
-      
-    }
-      
-    }
+    } 
 
 
   }
 
 
   private cookieService = inject(CookieService);
+  private router = inject(Router);
   nameDoctor:string = 'Jeims'
 
   logOut(){
     this.cookieService.deleteAll();
+    console.log(this.cookieService.getAll())
+    this.router.navigate(['/login'])
   }
+
 }
+
