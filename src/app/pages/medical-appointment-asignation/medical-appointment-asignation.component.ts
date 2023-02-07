@@ -12,6 +12,7 @@ import { MedicalselectionService } from 'src/app/services/medicalselection.servi
   styleUrls: ['./medical-appointment-asignation.component.css']
 })
 export class MedicalAppointmentAsignationComponent implements OnInit {
+  asignaciones: boolean = true
   ngOnInit(): void {
     this.AsignationMedical()
     this.AsignationCosultorio()
@@ -79,10 +80,16 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
     }
 
     GetByMedical(id:number) { 
+      console.log(id)
       this.medicalAsignationService.getOne(id).subscribe((res) => {
-        this.Updatelist = res
-        this.Editar(id)
-        console.log(this.Updatelist)
+        if (res.length > 0) {
+          this.asignaciones = true
+          this.Updatelist = res
+          this.Editar(id)
+          console.log(this.Updatelist)
+        }else {
+          this.asignaciones = false
+        }
       });
       
     }
