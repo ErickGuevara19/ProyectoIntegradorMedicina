@@ -1,27 +1,3 @@
-<!--<div class="register" *ngIf="Updating">
-    <div class="register-triangle"></div>
-    
-    <h2 class="register-header">Registro de Citas Medicas</h2>
-  
-    <form class="register-container">
-      <p><ng-select bindLabel="id_cita_medica" bindValue="id_cita_medica" name="id_cita_medica" [(ngModel)]="Create.id_cita_medica" [items]="MedicalCita"></ng-select></p>
-      <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio" [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
-      <input type="submit" value="Submit" (click)="registerMedical(Create)">
-    </form>
-</div>
-
-<div class="register" *ngIf="!Updating">
-    <div class="register-triangle"></div>
-    
-    <h2 class="register-header">Registro de Citas Medicas</h2>
-  
-    <form class="register-container">
-      <p><ng-select bindLabel="id_cita_medica" bindValue="id_cita_medica" name="id_cita_medica" [(ngModel)]="Create.id_cita_medica" [items]="MedicalCita"></ng-select></p>
-      <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio" [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
-      <input type="submit" value="Submit" (click)="registerMedical(Create)">
-    </form>
-</div> -->
----------------------------------------------------------------------
 
 <table class="table table-primary">
   <thead>
@@ -43,7 +19,7 @@
           <p>
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
               aria-expanded="false" aria-controls="collapseExample" (click)="cleanmodel(medical.id_cita_medica)">
-              Button with data-bs-target
+              Asignar
             </button>
           </p>
       <td>
@@ -67,8 +43,8 @@
             [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select>
         </div>
         <div class="card-footer">
-          <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapseExample" >Close</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerMedical(Create)">Save
+          <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapseExample"  >Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerMedical(Create)" data-bs-toggle="collapse" data-bs-target="#collapseExample" > Save
             changes</button>
         </div>
       </div>
