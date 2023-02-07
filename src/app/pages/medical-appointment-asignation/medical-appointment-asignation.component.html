@@ -1,74 +1,79 @@
-<!--<div class="register" *ngIf="Updating">
-    <div class="register-triangle"></div>
-    
-    <h2 class="register-header">Registro de Citas Medicas</h2>
-  
-    <form class="register-container">
-      <p><ng-select bindLabel="id_cita_medica" bindValue="id_cita_medica" name="id_cita_medica" [(ngModel)]="Create.id_cita_medica" [items]="MedicalCita"></ng-select></p>
-      <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio" [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
-      <input type="submit" value="Submit" (click)="registerMedical(Create)">
-    </form>
+<table class="default">
+
+  <table class="table">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Nombre del Paciente</th>
+        <th scope="col">Nombre del Doctor</th>
+        <th scope="col">Fecha Asignada</th>
+        <th scope="col">Horario</th>
+        <th scope="col">Asignacion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="" *ngFor="let medical of MedicalCita">
+        <td>{{medical.id_pacientel}}</td>
+        <td>{{medical.id_doctorl}}</td>
+        <td>{{medical.fecha_asignada}}</td>
+        <td>{{medical.id_horario}}</td>
+        <!-- The button to open modal -->
+<label for="my-modal" class="btn btn-primary " (click)="cleanmodel(medical.id_cita_medica)">Asignar</label>
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Escoja el consultorio</h3>
+    <p class="py-4"><ng-select dropdownPosition="bottom"  bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
+      [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
+    <div class="modal-action">
+      <label for="my-modal" class="btn" (click)="registerMedical(Create)">Registrar</label>
+    </div>
+  </div>
 </div>
 
-<div class="register" *ngIf="!Updating">
-    <div class="register-triangle"></div>
-    
-    <h2 class="register-header">Registro de Citas Medicas</h2>
-  
-    <form class="register-container">
-      <p><ng-select bindLabel="id_cita_medica" bindValue="id_cita_medica" name="id_cita_medica" [(ngModel)]="Create.id_cita_medica" [items]="MedicalCita"></ng-select></p>
-      <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio" [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
-      <input type="submit" value="Submit" (click)="registerMedical(Create)">
-    </form>
-</div> -->
----------------------------------------------------------------------
-
-<table class="table table-primary">
-  <thead>
-    <tr>
-      <th scope="col">Nombre del Paciente</th>
-      <th scope="col">Nombre del Doctor</th>
-      <th scope="col">Fecha Asignada</th>
-      <th scope="col">Horario</th>
-      <th scope="col">Asignacion</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="" *ngFor="let medical of MedicalCita">
-      <td>{{medical.id_pacientel}}</td>
-      <td>{{medical.id_doctorl}}</td>
-      <td>{{medical.fecha_asignada}}</td>
-      <td>{{medical.id_horario}}</td>
-
-          <p>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-              aria-expanded="false" aria-controls="collapseExample" (click)="cleanmodel(medical.id_cita_medica)">
-              Button with data-bs-target
-            </button>
-          </p>
-      <td>
-        <p>
-          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2"
-            aria-expanded="false" aria-controls="collapseExample"(click)="GetByMedical(medical.id_cita_medica)" (click)="Editar(medical.id_cita_medica)">
-            Editar
-          </button>
-        </p><!-- Button trigger modal -->
-      </td>
-    </tr>
-  </tbody>
+    <td>
+      <p>
+        <button for="my-modal" class="btn btn-primary " 
+          aria-expanded="false" aria-controls="collapseExample"(click)="GetByMedical(medical.id_cita_medica)" (click)="Editar(medical.id_cita_medica)">
+          Editar
+        </button>
+      </p><!-- Button trigger modal -->
+    </td>
+  </tr>
+</tbody>
 </table>
+
+<div class="mb-5">
+<div class="row mb-5 justify-content-center">
+  <div class="col-lg-6">
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <ng-select dropdownPosition="bottom"  bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
+          [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseExample"  >Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerMedical(Create)" data-bs-toggle="collapse" data-bs-target="#collapseExample" > Save
+          changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
 <div class="mb-5">
   <div class="row mb-5 justify-content-center">
     <div class="col-lg-6">
-      <div class="collapse" id="collapseExample">
+      <div class="collapse" id="collapseExample2">
         <div class="card card-body">
+          Update
           <ng-select dropdownPosition="bottom"  bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
-            [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select>
+            [(ngModel)]="Update.id_consultorio" [items]="Consultorio"></ng-select>
         </div>
         <div class="card-footer">
-          <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapseExample" >Close</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerMedical(Create)">Save
+          <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseExample2">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateMedical(Update)">Save
             changes</button>
         </div>
       </div>
@@ -76,67 +81,54 @@
   </div>
   </div>
 
-  <div class="mb-5">
-    <div class="row mb-5 justify-content-center">
-      <div class="col-lg-6">
-        <div class="collapse" id="collapseExample2">
-          <div class="card card-body">
-            Update
-            <ng-select dropdownPosition="bottom"  bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
-              [(ngModel)]="Update.id_consultorio" [items]="Consultorio"></ng-select>
-          </div>
-          <div class="card-footer">
-            <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapseExample2">Close</button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateMedical(Update)">Save
-              changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Asignacion</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      
-      <div class="modal-body">
-        <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
-            [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapseExample">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerMedical(Create)">Save
-          changes</button>
-      </div>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Asignacion</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    
+    <div class="modal-body">
+      <div class="form-group col-md-6">
+        <label for="inputHorario">Horario</label>
+        <ng-select [items]="consultorio" bindLabel="nombre_consultorio" bindValue="id_consultorio" [(ngModel)]="Create.id_consultorio" name="txtalergias" id="txtalergias"></ng-select>
+       </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapseExample">Close</button>
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerMedical(Create)">Save
+        changes</button>
     </div>
   </div>
+</div>
 </div>
 
 <!-- Modal -->
 <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
-            [(ngModel)]="Update.id_consultorio" [items]="Consultorio"></ng-select></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#collapseExample2">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateMedical(Update)">Save
-          changes</button>
-      </div>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <p><ng-select bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
+          [(ngModel)]="Update.id_consultorio" [items]="Consultorio"></ng-select></p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseExample2">Close</button>
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateMedical(Update)">Save
+        changes</button>
     </div>
   </div>
 </div>
+</div>
+</table>
+    
+
+
 
 
 

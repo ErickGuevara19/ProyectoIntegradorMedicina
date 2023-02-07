@@ -10,7 +10,7 @@ import { AdminGuard } from '../guards/admin.guard';
 const routes: Routes = [
   {path: 'admin',component: AdminComponent, children: [
     {path: 'doctor-register', component: DoctorsRegisterComponent,canActivate: [AdminGuard]},
-    {path: 'medical-appointment-registration', component: MedicalAppointmentRegistrationComponent},
+    {path: 'medical-appointment-registration', component: MedicalAppointmentRegistrationComponent,canActivate: [AdminGuard]},
     {path: 'doctor-list', component: DoctorsListComponent,canActivate: [AdminGuard]},
     {path: '', redirectTo:'/admin/doctor-list', pathMatch:'full'}
   ]

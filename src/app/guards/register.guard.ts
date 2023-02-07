@@ -6,7 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class RegisterGuard implements CanActivate {
   private cookieService = inject(CookieService)
   private router = inject(Router)
   canActivate(
@@ -15,16 +15,16 @@ export class AuthGuard implements CanActivate {
       const Jsonusuario =  this.cookieService.get('user')
       if (Jsonusuario) {
         const usuario = JSON.parse(this.cookieService.get('user'))
-        if (usuario.id_doctor) {
-          this.router.navigate(['dashboard/doctors'])
-          return false
+        if (usuario.id_paciente) {
+          return true
         }else if(usuario.id_admin) {
           this.router.navigate(['admin/doctor-list'])
           return false
-        }else if(usuario.id_paciente) {
-          this.router.navigate(['dashboard/patient'])
+        }else if(usuario.id_doctor) {
+          this.router.navigate(['dashboard/doctors'])
           return false
         }else {
+          this.router.navigate(['login'])
           return false
         }
       }else {

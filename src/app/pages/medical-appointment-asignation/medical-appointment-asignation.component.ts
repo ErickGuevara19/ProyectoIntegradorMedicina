@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsultorioModel } from 'src/app/entities/consultorio.model';
 import { CreateMedicalAsignationModel, UpdateMedicalAsignationModel } from 'src/app/entities/medicallist.model';
-import { MedicalsectionModel } from 'src/app/entities/medicalselection.model';
+import { CreateMedicalSection, MedicalsectionModel } from 'src/app/entities/medicalselection.model';
 import { ConsultorioService } from 'src/app/services/consultorio.service';
 import { MedicalasignationService } from 'src/app/services/medicalasignation.service';
 import { MedicalselectionService } from 'src/app/services/medicalselection.service';
@@ -12,19 +12,24 @@ import { MedicalselectionService } from 'src/app/services/medicalselection.servi
   styleUrls: ['./medical-appointment-asignation.component.css']
 })
 export class MedicalAppointmentAsignationComponent implements OnInit {
+  asignaciones: boolean = true
   ngOnInit(): void {
     this.AsignationMedical()
     this.AsignationCosultorio()
+    this.listarconsultorio();
     
   }
+
   constructor(private medicalAsignationService:MedicalasignationService, private medicalselectionService:MedicalselectionService, private consultorioService:ConsultorioService){}
   MedicalCita: MedicalsectionModel[]=[]
   Consultorio : ConsultorioModel[]=[]
+  consultorio : ConsultorioModel[]=[]
   Updatelist: UpdateMedicalAsignationModel[]=[]
   Updating: boolean= false
   Create:CreateMedicalAsignationModel = {    
     id_cita_medica: 0,
     id_consultorio:0,
+    
   }
 
   Update:UpdateMedicalAsignationModel = {   
@@ -79,10 +84,16 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
     }
 
     GetByMedical(id:number) { 
+      console.log(id)
       this.medicalAsignationService.getOne(id).subscribe((res) => {
-        this.Updatelist = res
-        this.Editar(id)
-        console.log(this.Updatelist)
+        if (res.length > 0) {
+          this.asignaciones = true
+          this.Updatelist = res
+          this.Editar(id)
+          console.log(this.Updatelist)
+        }else {
+          this.asignaciones = false
+        }
       });
       
     }
@@ -92,5 +103,13 @@ export class MedicalAppointmentAsignationComponent implements OnInit {
       this.Update.id_asignacion_medica= this.Updatelist[0].id_asignacion_medica
       this.Update.id_consultorio= this.Updatelist[0].id_consultorio
       console.log(this.Update)
+    }
+
+    listarconsultorio(){
+      this.consultorioService.getAll().subscribe((res) =>{
+        this.consultorio = res
+          console.log(res)
+        }
+      )
     }
 }

@@ -32,7 +32,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="\dashboard\medical-appoinment-asignation" class="nav-link">
+            <a  href="\dashboard\medical-appoinment-list" class="nav-link">
               <i class="nav-icon fas fa-book-medical"></i>
               <p>
                Citas Asignadas
@@ -58,8 +58,8 @@
             </a>
           </li>
           <li  class="nav-item">
-            <a class="nav-link">
-              <i [routerLink]="['/login']" routerLinkActive="router-link-active"  (click)="logOut()" class="nav-icon fas fa-sign-out-alt"></i>
+            <a (click)="logOut()" class="nav-link">
+              <i  routerLinkActive="router-link-active"  class="nav-icon fas fa-sign-out-alt"></i>
               <p>Salir</p>
             </a>
           </li>
@@ -127,8 +127,8 @@
             </a>
           </li>
           <li  class="nav-item">
-            <a class="nav-link">
-              <i [routerLink]="['/login']" routerLinkActive="router-link-active"  (click)="logOut()" class="nav-icon fas fa-sign-out-alt"></i>
+            <a (click)="logOut()" class="nav-link">
+              <i  routerLinkActive="router-link-active"   class="nav-icon fas fa-sign-out-alt"></i>
               <p>Salir</p>
             </a>
           </li>
@@ -179,6 +179,16 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="\dashboard\medical-appoinment-asignation" class="nav-link">
+              <i class="nav-icon fas fa-book-medical"></i>
+              <p>
+               Registro Citas Medicas
+
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="\dashboard\patient-information" class="nav-link">
               <i class="nav-icon fas fa-user-injured"></i>
@@ -197,8 +207,8 @@
             </a>
           </li>
           <li  class="nav-item">
-            <a class="nav-link">
-              <i [routerLink]="['/login']" routerLinkActive="router-link-active"  (click)="logOut()" class="nav-icon fas fa-sign-out-alt"></i>
+            <a (click)="logOut()" class="nav-link">
+              <i routerLinkActive="router-link-active"  class="nav-icon fas fa-sign-out-alt"></i>
               <p>Salir</p>
             </a>
           </li>

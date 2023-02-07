@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { DoctorModel } from 'src/app/entities/doctor.model';
 import { HorarioModel } from 'src/app/entities/horario.model';
 import { CreateMedicalSection, MedicalsectionModel } from 'src/app/entities/medicalselection.model';
@@ -19,19 +20,26 @@ export class MedicalAppointmentSelectionComponent {
     this.listarDoctores();
     this.listarPacientes();
     this.listarHorario();
+    this.listardoctor();
   }
   pacientes: PatientModel[]=[]
   doctors : DoctorModel[]=[]
   horario : HorarioModel[]=[]
+  doctor : DoctorModel[]=[]
   nombrepaciente: string = ''
   nombredoctor: string = ''
 
+
   MedicalAppoinment:CreateMedicalSection = {    
-      id_paciente: 0,
+      id_paciente:0,
       id_doctor: 0,
       fecha_asignada: new Date(),
-      id_horario:0
+      id_horario:0,
+      id_consultorio:0
+
     }
+
+
  
       print (){console.table(this.MedicalAppoinment)}
 
@@ -85,4 +93,15 @@ export class MedicalAppointmentSelectionComponent {
           }
         )
       }
+
+      listardoctor(){
+        this.doctorsService.getAll().subscribe((res) =>{
+          this.doctor = res
+            console.log(res)
+          }
+        )
+      }
+
+    
+
 }

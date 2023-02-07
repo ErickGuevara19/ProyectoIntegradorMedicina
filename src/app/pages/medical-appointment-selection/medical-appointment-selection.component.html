@@ -8,17 +8,11 @@
     <form action="" class="form">
       <h1 class="title">Registro de Citas Medicas</h1>
 
-      <div class="inputContainer">
-        <input class="input" type="text" name="name" [(ngModel)]="nombrepaciente" (change)="comparepatients()"
-          placeholder="Nombre del Paciente">
-        <label for="" class="label">Nombre del Paciente</label>
-      </div>
+      <div class="form-group col-md-6">
+        <label for="nombre">Nombres</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Nombres" name ="nombres">
+    </div>
 
-      <div class="inputContainer">
-        <input class="input" type="text" name="doctor" [(ngModel)]="nombredoctor" (change)="comparedoctors()"
-          placeholder="Nombre de Doctor">
-        <label for="" class="label">Nombre del Doctor</label>
-      </div>
 
       <div class="inputContainer">
         <input class="input" type="date" name="date" [(ngModel)]="MedicalAppoinment.fecha_asignada"
@@ -29,8 +23,25 @@
         <label for="inputHorario">Horario</label>
         <ng-select [items]="horario"bindLabel="descripcion" bindValue="id_horario" [(ngModel)]="MedicalAppoinment.id_horario" name="txtalergias" id="txtalergias"></ng-select>
        </div>
-      <input class="submitBtn" type="submit" value="Submit" (click)="registermedical(MedicalAppoinment)">
 
+       <div class="form-group col-md-6">
+        <label for="inputHorario">Doctor</label>
+        <ng-select [items]="doctor" bindLabel="nombre_d" bindValue="id_doctor" [(ngModel)]="MedicalAppoinment.id_doctor" name="txtalergias" id="txtalergias"></ng-select>
+       </div>
+
+       <!-- The button to open modal -->
+        <label for="my-modal" class="btn btn-primary" (click)="registermedical(MedicalAppoinment)">Registrar</label>
+
+      <!-- Put this part before </body> tag -->
+      <input type="checkbox" id="my-modal" class="modal-toggle" />
+      <div class="modal">
+        <div class="modal-box">
+          <h3 class="font-bold text-lg">Cita medica registrada con exito!!</h3>
+          <div class="modal-action">
+            <label for="my-modal" class="btn btn-primary"> <a href="\dashboard\medical-appoinment-selection">Cerrar</a></label>
+          </div>
+        </div>
+      </div>
     </form>
 
     <table class="default">
@@ -73,6 +84,5 @@
       </table>
     </table>
   </div>
-  <div>
 
-  </div>
+ 
