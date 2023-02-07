@@ -16,15 +16,25 @@
         <td>{{medical.id_doctorl}}</td>
         <td>{{medical.fecha_asignada}}</td>
         <td>{{medical.id_horario}}</td>
-        <p>
-          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-            aria-expanded="false" aria-controls="collapseExample" (click)="cleanmodel(medical.id_cita_medica)">
-            Asignar
-          </button>
-        </p>
+        <!-- The button to open modal -->
+<label for="my-modal" class="btn btn-primary " (click)="cleanmodel(medical.id_cita_medica)">Asignar</label>
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Escoja el consultorio</h3>
+    <p class="py-4"><ng-select dropdownPosition="bottom"  bindLabel="id_consultorio" bindValue="id_consultorio" name="id_consultorio"
+      [(ngModel)]="Create.id_consultorio" [items]="Consultorio"></ng-select></p>
+    <div class="modal-action">
+      <label for="my-modal" class="btn" (click)="registerMedical(Create)">Registrar</label>
+    </div>
+  </div>
+</div>
+
     <td>
       <p>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2"
+        <button for="my-modal" class="btn btn-primary " 
           aria-expanded="false" aria-controls="collapseExample"(click)="GetByMedical(medical.id_cita_medica)" (click)="Editar(medical.id_cita_medica)">
           Editar
         </button>

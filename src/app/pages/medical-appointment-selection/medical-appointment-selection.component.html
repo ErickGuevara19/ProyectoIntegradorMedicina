@@ -29,8 +29,20 @@
         <label for="inputHorario">Horario</label>
         <ng-select [items]="horario"bindLabel="descripcion" bindValue="id_horario" [(ngModel)]="MedicalAppoinment.id_horario" name="txtalergias" id="txtalergias"></ng-select>
        </div>
-      <input class="submitBtn" type="submit" value="Submit" (click)="registermedical(MedicalAppoinment)" >
 
+       <!-- The button to open modal -->
+        <label for="my-modal" class="btn btn-primary" (click)="registermedical(MedicalAppoinment)">Registrar</label>
+
+      <!-- Put this part before </body> tag -->
+      <input type="checkbox" id="my-modal" class="modal-toggle" />
+      <div class="modal">
+        <div class="modal-box">
+          <h3 class="font-bold text-lg">Cita medica registrada con exito!!</h3>
+          <div class="modal-action">
+            <label for="my-modal" class="btn btn-primary"> <a href="\dashboard\medical-appoinment-selection">Cerrar</a></label>
+          </div>
+        </div>
+      </div>
     </form>
 
     <table class="default">
@@ -73,7 +85,5 @@
       </table>
     </table>
   </div>
-  <div>
 
-
-  </div>
+ 

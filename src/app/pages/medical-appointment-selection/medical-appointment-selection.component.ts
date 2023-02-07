@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { DoctorModel } from 'src/app/entities/doctor.model';
 import { HorarioModel } from 'src/app/entities/horario.model';
 import { CreateMedicalSection, MedicalsectionModel } from 'src/app/entities/medicalselection.model';
@@ -86,5 +87,6 @@ export class MedicalAppointmentSelectionComponent {
         )
       }
 
+    
 
 }
