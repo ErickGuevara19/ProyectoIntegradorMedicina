@@ -4,41 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Paciente</title>
 </head>
-<body>
-    <table class="table table-primary">
-        <thead>
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Dirreccion</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Email</th>
-            <th scope="col">Telefono Familiar</th>
-            <th scope="col">Fecha de nacimiento</th>
-            <th scope="col">Genero</th>
-            <th scope="col">Alergia</th>
-            <th scope="col">Discapacidad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="" *ngFor ="let paciente of usuario">
-            <td>{{paciente.nombre_paciente}}</td>
-            <td>{{paciente.apellido_paciente}}</td>
-            <td>{{paciente.direccion_paciente}}</td>
-            <td>{{paciente.telefono_paciente}}</td>
-            <td>{{paciente.email_paciente}}</td>
-            <td>{{paciente.tlf_familiar_paciente}}</td>
-            <td>{{paciente.fecha_nacimiento_paciente}}</td>
-            <td>{{paciente.genero_paciente ? 'Masculino': 'Femenino'}}</td>
-            <td>{{paciente.alergia_nombre}}</td>
-            <td>{{paciente.discapacidad_nombre}}</td>
-            
-            <button [routerLink] ="['/registerPatient']" [state]="paciente">Actualizar</button>
-          </tr>
-        </tbody>
-        
-      </table>
-</body>
 </html>
+<section class="intro">
+  <div class="gradient-custom-1 h-100">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="table-responsive bg-white">
+              <table class="table mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">Nombre del Paciente</th>
+                    <th scope="col">Apellido del Paciente</th>
+                    <th scope="col">Direccion del Paciente</th>
+                    <th scope="col">Telefono del Paciente</th>
+                    <th scope="col">Email del paciente</th>
+                    
+                  </tr>
+              
+                </thead>
+                <tbody>
+                  <tr *ngFor ="let paciente of usuario">
+                    <td scope="row" style="color: #666666;">{{paciente.nombre_paciente}}</td>
+                    <td>{{paciente.apellido_paciente}}</td>
+                    <td>{{paciente.direccion_paciente}}</td>
+                    <td>{{paciente.telefono_paciente}}</td>
+                    <td>{{paciente.email_paciente}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">Telefono Familiar del Paciente</th>
+                    <th  scope="col">Fecha de Nacimiento</th>
+                    <th  scope="col">Genero</th>
+                    <th  scope="col">Alergia</th>
+                    <th  scope="col">Discapacidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor ="let paciente of usuario">
+                  <td>{{paciente.tlf_familiar_paciente}}</td>
+                   <td>{{paciente.fecha_nacimiento_paciente}}</td>
+                   <td>{{paciente.genero_paciente ? 'Masculino': 'Femenino'}}</td>
+                   <td>{{paciente.alergia_nombre}}</td>
+                   <td>{{paciente.discapacidad_nombre}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col-4">Editar</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor ="let paciente of usuario" >
+                    <td>
+                      <button [routerLink] ="['/registerPatient']" [state]="paciente" type="button" class="btn btn-dark btn-rounded">Actualizar</button>
+                    </td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
