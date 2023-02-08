@@ -35,7 +35,6 @@ export class MedicalAppointmentSelectionComponent {
       id_doctor: 0,
       fecha_asignada: new Date(),
       id_horario:0,
-      id_consultorio:0
 
     }
 

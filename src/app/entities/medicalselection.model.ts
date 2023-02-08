@@ -19,6 +19,5 @@ export interface CreateMedicalSection extends Omit<MedicalsectionModel, 'id_paci
     id_paciente:number;
     id_doctor: number;
     id_horario: number;
-    id_consultorio: number
 }
   
