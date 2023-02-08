@@ -46,7 +46,6 @@ export class SidebarComponent implements OnInit {
   logOut(){
     this.cookieService.deleteAll();
     console.log(this.cookieService.getAll())
-    this.router.navigate(['/login'])
   }
 
 }
