@@ -21,7 +21,7 @@ export class RegisterGuard implements CanActivate {
           this.router.navigate(['admin/doctor-list'])
           return false
         }else if(usuario.id_doctor) {
-          this.router.navigate(['dashboard/doctors'])
+          this.router.navigate(['dashboard/medical-appoinment-asignation'])
           return false
         }else {
           this.router.navigate(['login'])

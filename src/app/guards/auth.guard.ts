@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
       if (Jsonusuario) {
         const usuario = JSON.parse(this.cookieService.get('user'))
         if (usuario.id_doctor) {
-          this.router.navigate(['dashboard/doctors'])
+          this.router.navigate(['dashboard/medical-appoinment-asignation'])
           return false
         }else if(usuario.id_admin) {
           this.router.navigate(['admin/doctor-list'])
