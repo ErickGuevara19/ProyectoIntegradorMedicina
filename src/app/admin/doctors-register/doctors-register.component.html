@@ -91,7 +91,7 @@
               >
               </ng-select>
             </div>
-            <div class="col-lg-6 col-md-6">
+            <div class="form-group col-md-3">
               <label for="txtContraseña" class="fw-semibold form-label"
                 >Contraseña:</label
               >
@@ -118,6 +118,11 @@
 
               </p>
             </div>
+            <div class="form-group col-md-3">
+              <label for="contraseña">Confirmar Contraseña</label>
+              <input type="password" class="form-control" id="txtconfirmarcontraseña" placeholder="Contraseña" name="confirmarpassword" [formControl]= "confirmarpasswordCtrl" [(ngModel)]="confirmarPassword">
+                  <small class="text-{{confirmarPassword === doctor.password_d? 'success': 'danger'}}"  >{{confirmarPassword === doctor.password_d? "La contraseña coincide": "La contraseña no coincide"}}</small>
+          </div>
           </div>
         </div>
       </div>
@@ -143,8 +148,11 @@
               [(ngModel)]="doctorModel.nombre_d"
               id="txtNombre"
               (change)="print()"
+              [formControl]="nombreCtrl" 
               class="form-control"
             />
+            <p *ngIf="nombreCtrl.errors && nombreCtrl.dirty"> <small class="text-danger" *ngIf="nombreCtrl.hasError('required')">Este campo es requerido</small>
+              <small class="text-danger" *ngIf="nombreCtrl.hasError('pattern')">¡El nombre solo acepta letras sin espacios!<br> Evite usar números o caracteres especiales ej: (*$%, etc)</small></p>
           </div>
           <div class="col-lg-6 col-md-6">
             <label for="txtApellido" class="fw-semibold form-label"
@@ -156,7 +164,10 @@
               [(ngModel)]="doctorModel.apellidos_d"
               id="txtApellido"
               class="form-control"
+              [formControl]="apellidoCtrl" 
             />
+            <p *ngIf="apellidoCtrl.errors && apellidoCtrl.dirty"> <small class="text-danger" *ngIf="apellidoCtrl.hasError('required')">Este campo es requerido</small>
+              <small class="text-danger" *ngIf="apellidoCtrl.hasError('pattern')">¡El apellido solo acepta letras sin espacios!<br> Evite usar números o caracteres especiales ej: (*$%, etc)</small></p>
           </div>
         </div>
         <div class="mb-3 row justifyContent-between">
@@ -170,7 +181,13 @@
               [(ngModel)]="doctorModel.email"
               id="txtEmail"
               class="form-control"
-            />
+              [formControl]="emailCtrl" 
+                
+              />
+              <p *ngIf="emailCtrl.errors && emailCtrl.dirty"> <small class="text-danger" *ngIf="emailCtrl.hasError('required')">Este campo es requerido</small>
+                <small class="text-danger" *ngIf="emailCtrl.hasError('email')">No es un email válido</small></p>
+
+            
           </div>
           <div class="col-lg-6 col-md-6">
             <label for="txtDireccion" class="fw-semibold form-label"
@@ -182,7 +199,11 @@
               [(ngModel)]="doctorModel.dirreccion_d"
               id="txtDireccion"
               class="form-control"
-            />
+              [formControl]="direccionCtrl"  
+              />
+              <p *ngIf="direccionCtrl.errors && direccionCtrl.dirty"> <small class="text-danger" *ngIf="direccionCtrl.hasError('required')">Este campo es requerido</small>
+                <small class="text-danger" *ngIf="direccionCtrl.hasError('pattern')">No es una dirección válida, evite usar numeros o caracteres especiales ej: (*$%, etc)</small></p>
+            
           </div>
         </div>
         <div class="mb-3 row justifyContent-between">
@@ -200,7 +221,7 @@
             >
             </ng-select>
           </div>
-          <div class="col-lg-6 col-md-6">
+          <!--<div class="form-group col-md-3">
             <label for="txtContraseña" class="fw-semibold form-label"
               >Contraseña:</label
             >
@@ -210,9 +231,28 @@
               [(ngModel)]="doctorModel.password_d"
               id="txtContraseña"
               class="form-control"
-            />
-            <small id="txtContraseña" class="text-muted">Se aceptan números y carácteres especiales</small>
+              [formControl]="passwordCtrl" 
+              />
+              <small id="txtContraseña" class=" text-success" >- Al menos 8 caracteres de longitud
+                <br>
+                - Al menos 1 letra mayúscula  <br>
+                - Al menos 1 letra minúscula  <br>
+                - Al menos 1 número  <br>
+                - Al menos 1 carácter especial  <br></small>
+              <p *ngIf="passwordCtrl.errors && passwordCtrl.dirty"> 
+                <small class="text-danger" *ngIf="passwordCtrl.hasError('required')">Este campo es requerido</small>
+                <small id="txtContraseña" class=" text-danger" *ngIf="passwordCtrl.hasError('pattern')">
+                  La contraseña no cumple con las especificaciones requeridas <br>
+                </small>
+              </p>
+            
+        
           </div>
+          <div class="form-group col-md-3">
+            <label for="contraseña">Confirmar Contraseña</label>
+            <input type="password" class="form-control" id="txtconfirmarcontraseña" placeholder="Contraseña" name="confirmarpassword" [formControl]= "confirmarpasswordCtrl" [(ngModel)]="confirmarPassword">
+                <small class="text-{{confirmarPassword === doctor.password_d? 'success': 'danger'}}"  >{{confirmarPassword === doctor.password_d? "La contraseña coincide": "La contraseña no coincide"}}</small>
+        </div>-->
         </div>
       </div>
     </div>
@@ -221,4 +261,5 @@
     </div>
   </div>
   </div>
-</div> </div>
+</div> 
+</div>
