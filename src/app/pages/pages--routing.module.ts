@@ -26,7 +26,7 @@ const routes: Routes = [
       { path: 'medical-appoinment-list', component: MedicalAppointmentListComponent,canActivate: [DoctorGuard] },
       { path: 'medical-appoinment-selection', component: MedicalAppointmentSelectionComponent,canActivate: [PacienteGuard]  },
       { path: 'patients-token', component: PatientsTokenComponent,canActivate: [PacienteGuard] },
-      { path: 'medical-appoinment-asignation', component: MedicalAppointmentAsignationComponent,canActivate: [AdminGuard] },
+      { path: 'medical-appoinment-asignation', component: MedicalAppointmentAsignationComponent,canActivate: [DoctorGuard] },
       {path:'',redirectTo:'/dashboard/patient',pathMatch:'full'},
     ]
   }

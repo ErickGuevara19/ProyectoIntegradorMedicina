@@ -54,7 +54,7 @@ export class LoginComponent {
             id_especialidades: usuario.id_especialidades,
           });
           this.cookieService.set('user', responseJson);
-          this.router.navigate(['dashboard/doctors']);
+          this.router.navigate(['dashboard/medical-appoinment-list']);
         } else {
           if (response[0].id_admin) {
             const usuario = response[0];
