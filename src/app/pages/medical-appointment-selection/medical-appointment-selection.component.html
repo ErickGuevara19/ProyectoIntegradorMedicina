@@ -29,19 +29,29 @@
         <ng-select [items]="doctor" bindLabel="nombre_d"  bindValue="id_doctor" [(ngModel)]="MedicalAppoinment.id_doctor" name="txtalergias" id="txtalergias"></ng-select>
        </div>
 
-       <!-- The button to open modal -->
-        <label for="my-modal" class="btn btn-primary" (click)="registermedical(MedicalAppoinment)">Registrar</label>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="registermedical(MedicalAppoinment)">
+  Registrar
+</button>
 
-      <!-- Put this part before </body> tag -->
-      <input type="checkbox" id="my-modal" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg">Cita medica registrada con exito!!</h3>
-          <div class="modal-action">
-            <label for="my-modal" class="btn btn-primary"> <a href="\dashboard\medical-appoinment-selection">Cerrar</a></label>
-          </div>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        Cita medica registrada con exito!!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><a href="\dashboard\medical-appoinment-selection">Cerrar</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     </form>
 
     <table class="default">
