@@ -3,8 +3,8 @@
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-lg-10">
-        <div class="card">
-          <div class="card-body">
+        <div class="card-success ">
+          <div class="card-body ">
             <div class="row justifyContent-between">
               <div class="col-lg-1 col-md-1"><label class="fw-semibold form-label" for="filterNombre">Nombre:</label></div>
               <div class="col-lg-3 col-md-3"><input [(ngModel)]="filterName" id="filterNombre" name="filterNombre" class="form-control" type="text"></div>
@@ -24,12 +24,12 @@
     </div>
     
     <div class="row justify-content-center">
-      <div class="col-lg-10 col-md-10">
+      <div class="col-lg-9 col-md-10">
         <div class="table-responsive">
           <table class="table table-striped align-middle">
-            <thead class="table-">
+            <thead class="table- thead-light">
               <caption>
-                Listado
+                Lista de Doctores
               </caption>
               <tr>
                 <th>Nombre</th>
@@ -40,7 +40,7 @@
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr *ngFor="let doctor of doctorList | doctorList: filterName | doctorEmailList: filterEmail | doctorEspecialityList: filterEspecialidad" class="table-primary">
+              <tr *ngFor="let doctor of doctorList | doctorList: filterName | doctorEmailList: filterEmail | doctorEspecialityList: filterEspecialidad" class="table-warning table-striped table-bordered">
                 <td scope="row">
                   {{ doctor.nombre_d }}  {{ doctor.apellidos_d }}
                 </td>
@@ -49,7 +49,7 @@
                 <td>{{ doctor.especialidades }}</td>
                 <td>
                   <a
-                    class=" btn btn-primary me-1"
+                    class=" btn btn-success me-1"
                     [routerLink]="['../doctor-register']"
                     [state]="doctor"
                     >Editar</a
