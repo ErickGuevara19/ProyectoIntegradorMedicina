@@ -9,6 +9,7 @@
           <th scope="col">Fecha Asignada</th>
           <th scope="col">Horario</th>
           <th scope="col">Asignacion</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -18,11 +19,11 @@
           <td>{{medical.fecha_asignada}}</td>
           <td>{{medical.id_horario}}</td>
           <td>
-            <button  class="me-1 btn btn-warning" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            <button  class="me-1 btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseExample"
               (click)="cleanmodel(medical.id_cita_medica)">Asignar</button>
-            <button class="me-1 btn btn-warning" data-bs-toggle="collapse" data-bs-target="#collapseExample2"
-              (click)="GetByMedical(medical.id_cita_medica)"> Editar</button>
           </td>
+          <td><button class="me-1 btn btn-warning" data-bs-toggle="collapse" data-bs-target="#collapseExample2"
+            (click)="GetByMedical(medical.id_cita_medica)"> Editar</button></td>
         </tr>
       </tbody>
     </table>
@@ -65,10 +66,9 @@
             </div>
             <div class="card-footer">
               <button type="button" class="me-1 btn btn-primary" data-bs-toggle="collapse"
-                data-bs-target="#collapseExample">Close</button>
+                data-bs-target="#collapseExample">Cerrar</button>
               <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerMedical(Create)"
-                data-bs-toggle="collapse" data-bs-target="#collapseExample"> Save
-                changes</button>
+                data-bs-toggle="collapse" data-bs-target="#collapseExample" data-bs-dismiss="modal"> Guardar</button>
             </div>
           </div>
         </div>
@@ -80,15 +80,13 @@
         <div class="col-lg-6">
           <div class="collapse" id="collapseExample2">
             <div class="card card-body">
-              Update
+              Actualizacion
               <ng-select dropdownPosition="bottom" bindLabel="id_consultorio" bindValue="id_consultorio"
                 name="id_consultorio" [(ngModel)]="Update.id_consultorio" [items]="Consultorio"></ng-select>
             </div>
             <div class="card-footer">
-              <button type="button" class="me-1 btn btn-primary" data-bs-toggle="collapse"
-                data-bs-target="#collapseExample2">Close</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateMedical(Update)">Save
-                changes</button>
+              <button type="button" class="me-1 btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseExample2">Cerrar</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal"  data-bs-toggle="collapse" data-bs-target="#collapseExample2"(click)="updateMedical(Update)">Actualizar</button>
             </div>
           </div>
         </div>
