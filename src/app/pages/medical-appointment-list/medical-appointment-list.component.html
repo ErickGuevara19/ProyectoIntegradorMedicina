@@ -27,7 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="" *ngFor ="let medical of Medicalappointment" >
+      <tr class="" *ngFor ="let medical of Medicalappointment | medicalAsignation: usuario.nombre_d" >
         <td>{{medical.nombre_paciente}} {{medical.apellido_paciente}}</td>
             <td>{{medical.nombre_doctor}} {{medical.apellido_doctor}}</td>
             <td>{{medical.fecha_asignada}}</td>

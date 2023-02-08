@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,inject } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { DoctorModel } from 'src/app/entities/doctor.model';
 import { MedicalappointmentAsignationModel } from 'src/app/entities/medicallist.model';
 
 import { MedicallistService } from 'src/app/services/medicallist.service';
@@ -10,13 +12,31 @@ import { MedicallistService } from 'src/app/services/medicallist.service';
 })
 export class MedicalAppointmentListComponent {
 medicales: any;
+usuario: DoctorModel = {
+  nombre_d: '',
+  apellidos_d: '',
+  dirreccion_d: '',
+  email: '',
+  password_d: '',
+  id_doctor: 0,
+  especialidades: ''
+}
+private cookieService = inject(CookieService)
+
   constructor(private medicalserviceService: MedicallistService) {}
   Medicalappointment: MedicalappointmentAsignationModel[] = [];
+  doctorPipe = this.usuario.nombre_d
   ngOnInit(): void {
     this.listarMedical();
     this.Prueba2();
+    this.recibirUsuario();
   }
-
+  recibirUsuario(){
+    const Jsonusuario =  this.cookieService.get('user')
+    this.usuario = JSON.parse(this.cookieService.get('user'))
+    console.log(this.usuario)
+  }
+  
   listarMedical() { 
     this.medicalserviceService.getAllMedicales().subscribe((res) => {
       this.Medicalappointment = res

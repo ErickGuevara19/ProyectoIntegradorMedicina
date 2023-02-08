@@ -11,6 +11,7 @@ import { MedicalAppointmentAsignationComponent } from './medical-appointment-asi
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RouterModule } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service/public-api';
+import { MedicalAsignationPipe } from '../pipes/medical-asignation.pipe';
 
 
 
@@ -25,6 +26,7 @@ import { CookieService } from 'ngx-cookie-service/public-api';
     MedicalAppointmentSelectionComponent,
     PatientsTokenComponent,
     MedicalAppointmentAsignationComponent,
+    MedicalAsignationPipe
     
   ],
   imports: [

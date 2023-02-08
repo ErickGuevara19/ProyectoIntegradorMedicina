@@ -13,6 +13,7 @@ import { MedicalRecordComponent } from './medical-record/medical-record.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { MedicalAsignationPipe } from './pipes/medical-asignation.pipe';
 
 @NgModule({
   declarations: [
