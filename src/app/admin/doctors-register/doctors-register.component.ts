@@ -33,6 +33,11 @@ export class DoctorsRegisterComponent implements OnInit {
     Validators.required,
     Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-])[A-Za-z\d@$!%*?&-]{8,}$/)
   ]);
+  confirmarpasswordCtrl =new FormControl('',[
+    Validators.required,
+    Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-])[A-Za-z\d@$!%*?&-]{8,}$/),
+    
+  ]);
   form:any;
   constructor(private doctorsService:DoctorsService,private specialitiesService:SpecialitiesService, private formBuilder:FormBuilder){
     this.nombreCtrl.valueChanges
@@ -110,5 +115,5 @@ export class DoctorsRegisterComponent implements OnInit {
       });
   }
 
-  
+  confirmarPassword :string =""
 }
